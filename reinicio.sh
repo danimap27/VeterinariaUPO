@@ -2,8 +2,11 @@
 
 docker compose stop
 
+<<<<<<< HEAD
 #!/bin/bash
 
+=======
+>>>>>>> 9dadd20 (atributos de la clase persona declarados)
 echo "Limpiando volúmenes Docker no utilizados..."
 docker volume prune -f
 

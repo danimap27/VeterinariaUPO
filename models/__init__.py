@@ -12,5 +12,9 @@ from . import PruebaMedica
 from . import Seguro
 from . import TipoMedicina
 from . import Tratamiento
+<<<<<<< HEAD
 from . import Veterinario
 
+=======
+from . import Veterinario
+>>>>>>> 9dadd20 (atributos de la clase persona declarados)
