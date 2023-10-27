@@ -3,20 +3,19 @@
     'name': "VeterinariaUPO",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Gestionar una clinica Veterinaria""",
 
     'description': """
-        Long description of module's purpose
+        Con este modulo se podran gestionar todos los tramites y sus
     """,
 
-    'author': "My Company",
-    'website': "https://www.yourcompany.com",
+    'author': "VeterinariaUPO S.L.",
+    'website': "https://github.com/danimap27/VeterinariaUPO",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/16.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
-    'category': 'Uncategorized',
+    'category': 'Aplicaciones',
     'version': '0.1',
 
     # any module necessary for this one to work correctly
