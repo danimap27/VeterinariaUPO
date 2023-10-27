@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_veterinaria_upo_veterinaria_upo,veterinaria_upo.veterinaria_upo,model_veterinaria_upo_veterinaria_upo,base.group_user,1,1,1,1
