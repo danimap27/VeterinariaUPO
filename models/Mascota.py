@@ -9,7 +9,7 @@ class Mascota(models.Model):
     fechaNacimiento = fields.Datetime('fechaNacimientoMascota',required=True, autodate = True)
     vivo = fields.Binary('Sigue_Vivo')
     sexo = fields.Binary("SexoMascota")
-    especie = activityType = fields.Selection([('dog','Perro'),
+    especie = fields.Selection([('dog','Perro'),
                                      ('cat','Gato'),
                                      ('bird','Pajaro'),
                                      ], 
