@@ -9,7 +9,11 @@ class Mascota(models.Model):
     fechaNacimiento = fields.Datetime('fechaNacimientoMascota',required=True, autodate = True)
     vivo = fields.Binary('Sigue_Vivo')
     sexo = fields.Binary("SexoMascota")
-    especie = fields.Char(String="especieMascota", size = 100, required = True)
+    especie = activityType = fields.Selection([('dog','Perro'),
+                                     ('cat','Gato'),
+                                     ('bird','Pajaro'),
+                                     ], 
+                                     'Type of pet', required = True)
     raza = fields.Char(String="raza", size = 100)
     peso = fields.Float(float='Peso_Mascosta', required  = True)
     photo = fields.Binary('photo_Mascota')
