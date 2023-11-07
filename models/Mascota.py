@@ -4,7 +4,7 @@ class Mascota(models.Model):
     _name = 'veterinariaupo.mascota'
     _description = 'Modelo de la mascota del cliente'
     #Atributos mascota
-    id = fields.Integer(int='idMascota', required = True) #Primary Key de Mascota
+    microChip = fields.Integer(int='idMascota', required = True) #Primary Key de Mascota
     nombre = fields.Char(String = 'nombreMascota', size = 256, required = True)
     fechaNacimiento = fields.Datetime('fechaNacimientoMascota',required=True, autodate = True)
     vivo = fields.Binary('Sigue_Vivo')
