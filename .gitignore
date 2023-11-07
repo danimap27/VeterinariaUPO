@@ -1,0 +1,8 @@
+
+*.pyc
+*.pyc
+controllers/__pycache__/__init__.cpython-39.pyc
+__pycache__/__init__.cpython-39.pyc
+*.pyc
+__pycache__/__init__.cpython-39.pyc
+controllers/__pycache__/controllers.cpython-39.pyc
