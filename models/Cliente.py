@@ -6,5 +6,5 @@ class Cliente(models.Model):
     _inherit = 'veterinariaupo.persona'
 
     idCarnet = fields.Integer(int= 'idCarnet', size = 9, required = True)
-    direccion = fields.String(String = 'direccion', size = 20, required = True)
+    direccion = fields.Char(String = 'direccion', size = 20, required = True)
  
