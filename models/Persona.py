@@ -9,4 +9,4 @@ class Persona(models.Model):
     apellidos = fields.Char('Apellidos', size=100, required=True)
     direccion = fields.Char('Direccion', size=100, required=True)
     telefono = fields.Char('Telefono', size=9, required=True, help="Número de teléfono")
-    correo = fields.Char('Correo', size=100, required=True, help="Correo electrónico")
+    correo = fields.Char('Correo', size=100, help="Correo electrónico")
