@@ -1,45 +1,62 @@
 <odoo>
-  <record id="veterinario_view" model="ir.ui.view">
-    <field name="name">veterinario.form</field>
-    <field name="model">veterinariaupo.veterinario</field>
-    <field name="arch" type="xml">
-      <form string="Veterinario">
-        <sheet>
-          <group>
-            <field name="idVeterinario" />
-            <field name="name" />
-            <field name="especialidad" />
-            <field name="clinicas_id" widget="many2one" />
-            <field name="citas_ids" widget="one2many" />
-          </group>
-          <group>
-            <field name="photo" nolabel="1" widget="image" class="oe_avatar" />
-          </group>
-        </sheet>
-      </form>
-    </field>
-  </record>
+    <record id="veterinario_view" model="ir.ui.view">
+        <field name="name">veterinario.form</field>
+        <field name="model">veterinariaupo.veterinario</field>
+        <field name="arch" type="xml">
+            <form string="Veterinario">
+                <sheet>
+                    <group>
+                        <field name="name" string="ID VETERINARIO"/>
+                        <field name="especialidad" string="Especialidad"/>
+                        <field name="photo" string="Foto Veterinario"/>
+                        <field name="name" invisible="1"/>
+                        <field name="dni" string="DNI"/>
+                        <field name="nombre" string="Nombre"/>
+                        <field name="apellidos" string="Apellidos"/>
+                        <field name="direccion" string="Dirección"/>
+                        <field name="telefono" string="Teléfono"/>
+                        <field name="correo" string="Correo Electrónico"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-  <record id="veterinario_tree_view" model="ir.ui.view">
-    <field name="name">veterinario.tree</field>
-    <field name="model">veterinariaupo.veterinario</field>
-    <field name="arch" type="xml">
-      <tree string="Veterinarios">
-        <field name="idVeterinario" />
-        <field name="name" />
-        <field name="especialidad" />
-        <field name="clinicas_id" />
-        <field name="citas_ids" />
-      </tree>
-    </field>
-  </record>
+    <record id="veterinario_tree_view" model="ir.ui.view">
+        <field name="name">veterinario.tree</field>
+        <field name="model">veterinariaupo.veterinario</field>
+        <field name="arch" type="xml">
+            <tree string="Veterinarios">
+                <field name="name"/>
+                <field name="especialidad"/>
+                <field name="name" invisible="1"/>
+                <field name="dni"/>
+                <field name="telefono"/>
+                <field name="correo"/>
+            </tree>
+        </field>
+    </record>
+<!-- 
+    <record id="veterinario_search_view" model="ir.ui.view">
+        <field name="name">veterinario.search</field>
+        <field name="model">veterinariaupo.veterinario</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="especialidad" string="Especialidad"/>
+                <field name="search" invisible="1"/>
+                <filter name="search_especialidad" string="Especialidad" domain="[('especialidad','ilike',name)]" />
+                <group expand="1" string="Group By">
+                    <filter name="group_by_name" string="Group by Name" context="{'group_by':'especialidad'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+-->
 
-  <record id="veterinario_list_action" model="ir.actions.act_window">
-    <field name="name">Veterinarios</field>
-    <field name="res_model">veterinariaupo.veterinario</field>
-    <field name="view_mode">tree,form</field>
-    <field name="help" type="html">
-      <p class="o_view_nocontent_smiling_face">No se han creado veterinarios todavía</p>
-    </field>
-  </record>
+    <record id="veterinario_list_action" model="ir.actions.act_window">
+        <field name="name">Veterinarios</field>
+        <field name="res_model">veterinariaupo.veterinario</field>
+        <!--<field name="search_view_id" ref="veterinario_search_view"/>-->
+        <field name="view_mode">tree,form</field>
+    </record>
 </odoo>

@@ -13,7 +13,7 @@
   <menuitem name="Prueba Mediaca" id="prueba_medica_menu" parent="veterinaria_menu" groups="group_veterinaria_manager" action="prueba_medica_list_action"/>
   <menuitem name="Seguro" id="seguro_menu" parent="veterinaria_menu" groups="group_veterinaria_manager" action="seguro_list_action"/>
   <menuitem name="Tratamiento" id="tratamiento_menu" parent="veterinaria_menu" groups="group_veterinaria_manager" action="tratamiento_list_action"/>
-
-  <menuitem name="Veterinario" id="veterinarioupo_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="veterinario_list_action"/>
 -->
+  <menuitem name="Veterinario" id="veterinario_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="veterinario_list_action"/>
+
 </odoo>

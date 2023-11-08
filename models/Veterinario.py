@@ -5,7 +5,7 @@ class Veterinario(models.Model):
     _description = 'Modelo Veterinario'
     _inherit = 'veterinariaupo.persona'
     
-    idVeterinario = fields.Char('ID VETERINARIO', size=9, required=True, help="Identificación del Veterinario")
+    name = fields.Char('ID VETERINARIO', size=9, required=True, help="Identificación del Veterinario")
     #Cambiar por un selection
     especialidad = fields.Char('Especialidad', size=20, required=True, help="Especialidad del Veterinario")
     photo = fields.Binary('photo_Mascota')
