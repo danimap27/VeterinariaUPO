@@ -1,11 +1,19 @@
 <odoo>
-  <menuitem name="Veterinaria" id="main_veterinaria_menu" groups="group_veterinaria_manager"/>
+  <menuitem name="Veterinaria" id="main_veterinariaupo_menu" groups="group_veterinariaupo_manager"/>
 
-  <menuitem name="Veterinaria" id="veterinaria_menu" groups="group_veterinaria_manager" parent="main_veterinaria_menu"/>
+  <menuitem name="Veterinaria" id="veterinariaupo_menu" groups="group_veterinariaupo_manager" parent="main_veterinariaupo_menu"/>
 <!-- Implementar cuando se creen las vistas
   <menuitem name="ATS" id="ats_menu" parent="veterinaria_menu" groups="group_veterinaria_manager" action="ats_list_action"/>
   <menuitem name="Cita" id="cita_menu" parent="veterinaria_menu" groups="group_veterinaria_manager" action="cita_list_action"/>
   <menuitem name="Cliente" id="cliente_menu" parent="veterinaria_menu" groups="group_veterinaria_manager" action="cliente_list_action"/>
   <menuitem name="Clinica" id="clinica_menu" parent="veterinaria_menu" groups="group_veterinaria_manager" action="clinica_list_action"/>
+  <menuitem name="Laboratorio" id="laboratorio_menu" parent="veterinaria_menu" groups="group_veterinaria_manager" action="laboratorio_list_action"/>
+  <menuitem name="Mascota" id="mascota_menu" parent="veterinaria_menu" groups="group_veterinaria_manager" action="mascota_list_action"/>
+  <menuitem name="Medicina" id="medicina_menu" parent="veterinaria_menu" groups="group_veterinaria_manager" action="medicina_list_action"/>
+  <menuitem name="Prueba Mediaca" id="prueba_medica_menu" parent="veterinaria_menu" groups="group_veterinaria_manager" action="prueba_medica_list_action"/>
+  <menuitem name="Seguro" id="seguro_menu" parent="veterinaria_menu" groups="group_veterinaria_manager" action="seguro_list_action"/>
+  <menuitem name="Tratamiento" id="tratamiento_menu" parent="veterinaria_menu" groups="group_veterinaria_manager" action="tratamiento_list_action"/>
+
+  <menuitem name="Veterinario" id="veterinarioupo_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="veterinario_list_action"/>
 -->
 </odoo>
