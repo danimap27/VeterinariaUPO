@@ -25,6 +25,7 @@
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        'views/laboratorio_view.xml',
         'views/veterinario_view.xml',
         'views/views.xml',
         'views/templates.xml',
