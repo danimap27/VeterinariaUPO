@@ -1,0 +1,37 @@
+<odoo>
+    <record id="laboratorio_view" model="ir.ui.view">
+        <field name="name">laboratorio.form</field>
+        <field name="model">veterinariaupo.laboratorio</field>
+        <field name="arch" type="xml">
+            <form string="laboratorio">
+                <sheet>
+                    <group>
+                        <field name="nombre" string="Nombre Del Laboratorio" />
+                        <field name="direccion" string="Adress: "/>
+                        <field name="correo" string="Correo Electronico" />
+                        <field name="telefono" string="Teléfono" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="laboratorio_tree_view" model="ir.ui.view">
+        <field name="name">laboratorio.tree</field>
+        <field name="model">veterinariaupo.laboratorio</field>
+        <field name="arch" type="xml">
+            <tree string="Laboratorios">
+                <field name="nombre"/>
+                <field name="direccion"/>
+                <field name="correo"/>
+                <field name="telefono"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="laboratorio_list_action" model="ir.actions.act_window">
+        <field name="name">Vista Laboratorios</field>
+        <field name="res_model">veterinariaupo.laboratorio</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
