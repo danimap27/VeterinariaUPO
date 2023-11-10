@@ -15,5 +15,8 @@
 -->
   <menuitem name="Laboratorio" id="laboratorio_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="laboratorio_list_action"/>
   <menuitem name="Veterinario" id="veterinario_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="veterinario_list_action"/>
+  <menuitem name="Citas" id="cita_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="cita_calendar_action"/>
+  <menuitem name="Clínicas" id="clinica_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="clinica_list_action"/>
+  <menuitem name="Pruebas Médicas" id="prueba_medica_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="prueba_medica_calendar_action"/>
 
 </odoo>
