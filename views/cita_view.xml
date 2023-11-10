@@ -1,0 +1,19 @@
+<odoo>
+    <record id="cita_view" model="ir.ui.view">
+        <field name="name">cita.calendar</field>
+        <field name="model">veterinariaupo.cita</field>
+        <field name="arch" type="xml">
+            <calendar string="Citas" date_start="fecha" date_stop="fecha" color="fecha">
+                <field name="descripcion"/>
+                <field name="duracion"/>
+                <field name="fecha"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="cita_calendar_action" model="ir.actions.act_window">
+        <field name="name">Citas</field>
+        <field name="res_model">veterinariaupo.cita</field>
+        <field name="view_mode">calendar,tree,form</field>
+    </record>
+</odoo>
