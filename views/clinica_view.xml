@@ -1,0 +1,35 @@
+<odoo>
+    <record id="clinica_view" model="ir.ui.view">
+        <field name="name">clinica.form</field>
+        <field name="model">veterinariaupo.clinica</field>
+        <field name="arch" type="xml">
+            <form string="Clínica">
+                <sheet>
+                    <group>
+                        <field name="nombre" string="Nombre de la Clínica"/>
+                        <field name="direccion" string="Dirección"/>
+                        <field name="telefono" string="Teléfono"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="clinica_tree_view" model="ir.ui.view">
+        <field name="name">clinica.tree</field>
+        <field name="model">veterinariaupo.clinica</field>
+        <field name="arch" type="xml">
+            <tree string="Clínicas">
+                <field name="nombre"/>
+                <field name="direccion"/>
+                <field name="telefono"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="clinica_list_action" model="ir.actions.act_window">
+        <field name="name">Clínicas</field>
+        <field name="res_model">veterinariaupo.clinica</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
