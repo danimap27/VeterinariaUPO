@@ -9,4 +9,5 @@ class Cliente(models.Model):
     direccion = fields.Char(String = 'direccion', size = 20, required = True, help="Direccion del cliente")
     photo = fields.Binary('photo_Mascota')
     
-    mascotas_ids = fields.One2many('veterinariaupo.mascota','carnets_id','Mascota')
+   mascotas_ids = fields.Many2many('veterinariaupo.mascota', string='Mascota')
+
