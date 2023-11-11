@@ -10,6 +10,7 @@
                         <field name="sexo" string="Sexo" />
                         <field name="especie" string="Mascota: " />
                         <field name="raza" string="Raza"/>
+                        <field name="fechaNacimiento" string="fechaNacimiento"/>
                         <field name="peso" string="Peso"/>
                         <field name="carnets_id" string="ID Cliente" widget="many2one"/> 
                         <field name="microChip" string="Microchip"/>
@@ -28,6 +29,7 @@
                 <field name="sexo" string="Sexo" />
                 <field name="especie" string="Mascota: " />
                 <field name="raza" string="Raza"/>
+                <field name="fechaNacimiento" string="fechaNacimiento"/>
                 <field name="peso" string="Peso"/>
                 <field name="carnets_id" string="ID Cliente" widget="many2one"/>
                 <field name="microChip" string="Microchip"/>
