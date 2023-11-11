@@ -4,13 +4,11 @@ class Mascota(models.Model):
     _name = 'veterinariaupo.mascota'
     _description = 'Modelo de la mascota del cliente'
     #Atributos mascota
-    microChip = fields.Integer(int='idMascota', required = True) #Primary Key de Mascota
+    microChip = fields.Integer('idMascota', required = True) #Primary Key de Mascota
     nombre = fields.Char(String = 'nombreMascota', size = 256, required = True)
     fechaNacimiento = fields.Datetime('fechaNacimientoMascota',required=True, autodate = True)
-    #vivo = fields.Selection([('vivo','Vivo'),('muerto','Muerto')])
-    #sexo = fields.Selection([('macho','Macho'),('hembra','Hembra')])
-    vivo = fields.Binary('Sigue_Vivo')
-    sexo = fields.Binary("SexoMascota")
+    vivo = fields.Selection([('vivo','Vivo'),('muerto','Muerto')])
+    sexo = fields.Selection([('macho','Macho'),('hembra','Hembra')])
     especie = fields.Selection([('dog','Perro'),
                                      ('cat','Gato'),
                                      ('bird','Pajaro'),
