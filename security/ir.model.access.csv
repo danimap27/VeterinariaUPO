@@ -1,5 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 veterinario_manager,veterinario_manager,model_veterinariaupo_veterinario,group_veterinariaupo_manager,1,1,1,1
+mascota_manager,mascota_manager,model_veterinariaupo_mascota,group_veterinariaupo_manager,1,1,1,1
 laboratorio_manager,laboratorio_manager,model_veterinariaupo_laboratorio,group_veterinariaupo_manager,1,1,1,1
 cita_manager,cita_manager,model_veterinariaupo_cita,group_veterinariaupo_manager,1,1,1,1
 clinica_manager,clinica_manager,model_veterinariaupo_clinica,group_veterinariaupo_manager,1,1,1,1
