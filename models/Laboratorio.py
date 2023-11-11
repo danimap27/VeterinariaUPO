@@ -9,4 +9,6 @@ class Laboratorio(models.Model):
     correo = fields.Char(String = 'correo')
     telefono = fields.Integer(int = "telefonoLab", required=True)
 
+    codigo_nacional = fields.Many2many('veterinariaupo.medicina', string='Medicina')
+    atsID = fields.One2many('veterinariaupo.ats','direccion','ATS')
     
