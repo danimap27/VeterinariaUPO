@@ -12,4 +12,4 @@ class Medicina(models.Model):
     descripcion = fields.Text('Descripcion')
     prospecto = fields.Char('Prospecto',size = 20,required=True)
     
-    
+    laboratorios_id = fields.Many2many('veterinariaupo.laboratorio',string='codigo_nacional')
