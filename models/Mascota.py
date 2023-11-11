@@ -20,6 +20,6 @@ class Mascota(models.Model):
     peso = fields.Float(float='Peso_Mascosta', required  = True)
     photo = fields.Binary('photo_Mascota')
 
-    carnets_id = fields.Many2one('vaterinariaupo.cliente',string='Duenyo de la mascota')
+    carnets_id = fields.Many2one('veterinariaupo.cliente',string='Duenyo de la mascota')
 
  
