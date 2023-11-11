@@ -28,6 +28,7 @@
         'views/laboratorio_view.xml',
         'views/veterinario_view.xml',
         'views/cita_view.xml',
+        'views/seguro_view.xml',
         'views/mascota_view.xml',
         'views/clinica_view.xml',
         'views/pruebamedica_view.xml',
