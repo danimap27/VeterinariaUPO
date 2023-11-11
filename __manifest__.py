@@ -37,6 +37,8 @@
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
-    ],
+    ],    
+    'auto_install': True,
+    'application': True
 }
 
