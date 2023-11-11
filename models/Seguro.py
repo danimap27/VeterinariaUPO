@@ -8,3 +8,5 @@ class Seguro(models.Model):
     precio = fields.Float(float='precioSeguro', required = True)
     tipo = fields.Char(String = 'tipoSeguro', size = 256, required = True)
     condiciones = fields.Char(String = 'condicionesSeguro',autodate = True)
+
+    idMascota = fields.One2many('veterinariaupo.mascota','microChip','Mascota')
