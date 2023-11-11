@@ -5,8 +5,10 @@ class Clinica(models.Model):
     _description = 'Modelo de la Clinica'
     
     nombre = fields.Char(String = 'nombreCli', size = 256, required = True)
-    direccion = fields.Char(String = 'direccionClinica', required=True) #La primary key
+    direccion = fields.Char(String = 'direccionClinica', required=True, help="La dirección de la clínica, se utiliza como clave primaria") #La primary key
     telefono = fields.Integer(int = "telefonoCli", required=True)
 
     # Relación con la clase Veterinario (1 a muchos)
-    #idVeterinario = fields.One2many('veterinariaupo.veterinario', 'nombre', string='Veterinarios')
+    veterinarios_ids = fields.One2many('veterinariaupo.veterinario', 'clinicas_id', string='Veterinarios')
+    
+    

@@ -14,10 +14,10 @@ class Cita(models.Model):
     #microChip = fields.Many2one('veterinariaupo.mascota', string='Mascota')
 
     # Relación con la clase Veterinario (Muchos a 1)
-    #idVeterinario = fields.Many2one('veterinariaupo.veterinario', string='Veterinario')
+    veterinario_id = fields.Many2one('veterinariaupo.veterinario', string='Veterinario')
 
     # Relación con la clase Tratamiento (1 a muchos)
-    #id_tratamiento = fields.One2many('veterinariaupo.tratamiento', 'id_cita', string='Tratamientos')
+    #tratamientos_ids = fields.One2many('veterinariaupo.tratamiento', 'cita_id', string='Tratamientos')
 
     # Relación con la clase PruebaMedica (1 a muchos)
-    #id_pruebamedica = fields.One2many('veterinariaupo.prueba_medica', 'id_cita', string='Pruebas Médicas')
+    pruebas_medicas_ids = fields.One2many('veterinariaupo.pruebamedica', 'cita_id', string='Pruebas Médicas')

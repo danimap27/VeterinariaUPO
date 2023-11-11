@@ -11,7 +11,7 @@ class PruebaMedica(models.Model):
     descripcion = fields.Text('Descripcion')
 
     # Relación con la clase ATS (Muchos a 1)
-    #idATS = fields.Many2one('veterinariaupo.ats', string='ATS')
+    ats_id = fields.Many2one('veterinariaupo.ats', string='ATS')
 
     # Relación con la clase Cita (Muchos a 1)
-    #cita_id = fields.Many2one('veterinariaupo.cita', string='Cita')
+    cita_id = fields.Many2one('veterinariaupo.cita', string='Cita')
