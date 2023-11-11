@@ -1,0 +1,39 @@
+<odoo>
+    <record id="seguro_view" model="ir.ui.view">
+        <field name="name">seguro.form</field>
+        <field name="model">veterinariaupo.seguro</field>
+        <field name="arch" type="xml">
+            <form string="seguro">
+                <sheet>
+                    <group>
+                        <field name="numeroPoliza" string="ID de la poliza" />
+                        <field name="precio" string="Precio "/>
+                        <field name="tipo" string="tipoPoliza" />
+                        <field name="condiciones" string="Condiciones" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="seguro_tree_view" model="ir.ui.view">
+        <field name="name">seguro.tree</field>
+        <field name="model">veterinariaupo.seguro</field>
+        <field name="arch" type="xml">
+            <tree string="Seguros">
+                <field name="numeroPoliza" />
+                <field name="precio"/>
+                <field name="tipo" />
+                <field name="condiciones" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="seguro_list_action" model="ir.actions.act_window">
+        <field name="name">Vista Seguros</field>
+        <field name="res_model">veterinariaupo.seguro</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
+
+
