@@ -1,4 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+ats_manager,ats_manager,model_veterinariaupo_ats,group_veterinariaupo_manager,1,1,1,1
 cliente_manager,cliente_manager,model_veterinariaupo_cliente,group_veterinariaupo_manager,1,1,1,1
 veterinario_manager,veterinario_manager,model_veterinariaupo_veterinario,group_veterinariaupo_manager,1,1,1,1
 mascota_manager,mascota_manager,model_veterinariaupo_mascota,group_veterinariaupo_manager,1,1,1,1

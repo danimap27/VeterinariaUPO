@@ -1,0 +1,39 @@
+<!-- vistas/ats_view.xml -->
+<odoo>
+    <record id="ats_form_view" model="ir.ui.view">
+        <field name="name">ats.form</field>
+        <field name="model">veterinariaupo.ats</field>
+        <field name="arch" type="xml">
+            <form string="ATS">
+                <sheet>
+                    <group>
+                        <field name="idATS"/>
+                        <field name="especialidad"/>
+                    </group>
+                    <notebook>
+                        <page string="Pruebas Médicas" >
+                            <field name="prueba_medicas" widget="one2many_list" options="{'readonly': False}" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ats_tree_view" model="ir.ui.view">
+        <field name="name">ats.tree</field>
+        <field name="model">veterinariaupo.ats</field>
+        <field name="arch" type="xml">
+            <tree string="ATS Tree">
+                <field name="idATS"/>
+                <field name="especialidad"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ats_list_action" model="ir.actions.act_window">
+        <field name="name">ATS</field>
+        <field name="res_model">veterinariaupo.ats</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
