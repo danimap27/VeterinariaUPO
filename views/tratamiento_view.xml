@@ -1,0 +1,37 @@
+<odoo>
+    <record id="tratamineto_view" model="ir.ui.view">
+        <field name="name">tratamiento.form</field>
+        <field name="model">veterinariaupo.tratamiento</field>
+        <field name="arch" type="xml">
+            <form string="tratamiento">
+                <sheet>
+                    <group>
+                        <field name="id_tratamiento" string="id Del tratamiento" />
+                        <field name="descripcion" string="Descripcion: "/>
+                        <field name="fin_tratamiento" string="Fin del tratamiento" />
+                        <field name="inicio_tratamiento" string="Inicio del tratamiento" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tratamiento_tree_view" model="ir.ui.view">
+        <field name="name">tratamiento.tree</field>
+        <field name="model">veterinariaupo.tratamiento</field>
+        <field name="arch" type="xml">
+            <tree string="Tratamientos">
+                <field name="id"/>
+                <field name="descripcion"/>
+                <field name="fin_tratamiento"/>
+                <field name="inicio_tratamiento"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="tratamiento_list_action" model="ir.actions.act_window">
+        <field name="name">Vista Tratamientos</field>
+        <field name="res_model">veterinariaupo.tratamiento</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

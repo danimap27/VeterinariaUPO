@@ -1,0 +1,35 @@
+<odoo>
+<record id="veterinariaupo_tipomedicina_form_view" model="ir.ui.view">
+    <field name="name">veterinariaupo.tipomedicina.form</field>
+    <field name="model">veterinariaupo.tipomedicina</field>
+    <field name="arch" type="xml">
+       
+                <form string="Tipo Medicina">
+                    <sheet>
+                        <group>
+                            <field name="nombre" />
+                            
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    
+<record id="veterinariaupo_tipomedicina_view_tree" model="ir.ui.view">
+    <field name="name">veterinariaupo.tipomedicina.view.tree</field>
+    <field name="model">veterinariaupo.tipomedicina</field>
+    <field name="arch" type="xml">
+        <tree string="tree_string">
+                <field name="nombre" />
+               
+        </tree>
+    </field>
+</record>
+
+<record id="tipomedicina_list_action" model="ir.actions.act_window">
+        <field name="name">Vista Tipo Medicina</field>
+        <field name="res_model">veterinariaupo.tipomedicina</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
