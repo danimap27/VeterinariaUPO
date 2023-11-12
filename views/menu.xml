@@ -1,19 +1,20 @@
 <odoo>
-  <menuitem name="Veterinaria" id="main_veterinariaupo_menu" groups="group_veterinariaupo_manager"/>
-
-  <menuitem name="Veterinaria" id="veterinariaupo_menu" groups="group_veterinariaupo_manager" parent="main_veterinariaupo_menu"/>
-<!-- Implementar cuando se creen las vistas
-  <menuitem name="ATS" id="ats_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="ats_list_action"/>
-  <menuitem name="Medicina" id="medicina_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="medicina_list_action"/>
-  <menuitem name="Tratamiento" id="tratamiento_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="tratamiento_list_action"/>
--->
-  <menuitem name="Cliente" id="cliente_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="cliente_list_action"/>
-  <menuitem name="Laboratorio" id="laboratorio_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="laboratorio_list_action"/>
-  <menuitem name="Veterinario" id="veterinario_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="veterinario_list_action"/>
-  <menuitem name="Citas" id="cita_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="cita_calendar_action"/>
-  <menuitem name="Seguros" id="seguro_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="seguro_list_action"/>
-  <menuitem name="Mascotas" id="mascota_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="mascota_list_action"/>
-  <menuitem name="Clínicas" id="clinica_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="clinica_list_action"/>
-  <menuitem name="Pruebas Médicas" id="prueba_medica_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="prueba_medica_calendar_action"/>
-
+<menuitem name="Veterinaria" id="main_veterinariaupo_menu" groups="group_veterinariaupo_manager"/>
+<menuitem name="Veterinaria" id="veterinariaupo_menu" groups="group_veterinariaupo_manager" parent="main_veterinariaupo_menu"/>
+<!--  Implementar cuando se creen las vistas
+  <menuitem name="ATS" id="ats_menu" parent="veterinaria_menu" groups="group_veterinaria_manager" action="ats_list_action"/>
+  <menuitem name="Cliente" id="cliente_menu" parent="veterinaria_menu" groups="group_veterinaria_manager" action="cliente_list_action"/>
+  <menuitem name="Medicina" id="medicina_menu" parent="veterinaria_menu" groups="group_veterinaria_manager" action="medicina_list_action"/>
+  <menuitem name="Tratamiento" id="tratamiento_menu" parent="veterinaria_menu" groups="group_veterinaria_manager" action="tratamiento_list_action"/>
+ -->
+<menuitem name="Laboratorio" id="laboratorio_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="laboratorio_list_action"/>
+<menuitem name="Veterinario" id="veterinario_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="veterinario_list_action"/>
+<menuitem name="Citas" id="cita_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="cita_calendar_action"/>
+<menuitem name="Seguros" id="seguro_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="seguro_list_action"/>
+<menuitem name="Mascotas" id="mascota_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="mascota_list_action"/>
+<menuitem name="Clínicas" id="clinica_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="clinica_list_action"/>
+<menuitem name="Medicina" id="medicina_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="medicina_list_action"/>
+<menuitem name="Tipo Medicina" id="tipomedicina_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="tipomedicina_list_action"/>
+<menuitem name="Tratamiento" id="tratamiento_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="tratamiento_list_action"/>
+<menuitem name="Pruebas Médicas" id="prueba_medica_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="prueba_medica_calendar_action"/>
 </odoo>
