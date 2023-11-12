@@ -1,28 +1,123 @@
 <odoo>
-<record id="cliente_demo" model="veterinariaupo.cliente">
-    <field name="carnet_id">123456789</field>
-    <field name="direccion">Calle Principal, Ciudad</field>
-    <field name="photo">Base64 encoded image data</field>
-    <field name="mascotas_ids" eval="[(6, 0, [ref('mascota_demo')])]"/>
-</record>
-<record id="ats_demo" model="veterinariaupo.ats">
+    <record id="ats_demo" model="veterinariaupo.ats">
+        <field name="dni">123456789</field>
+        <field name="nombre">Dr. Juan Pérez</field>
+        <field name="apellidos">López</field>
+        <field name="direccion">Calle Veterinaria, Ciudad</field>
+        <field name="telefono">555-1234</field>
+        <field name="correo">juan.perez@veterinaria.com</field>
+        <field name="idATS">ATS123456</field>
+        <field name="especialidad">Cardiología</field>
+    </record>
+        <record id="clinica_demo" model="veterinariaupo.clinica">
+        <field name="nombre">Clínica Veterinaria XYZ</field>
+        <field name="direccion">Avenida Central, Ciudad</field>
+        <field name="telefono">123456789</field>
+    </record>
+<record id="veterinario_demo" model="veterinariaupo.veterinario">
     <field name="dni">123456789</field>
     <field name="nombre">Dr. Juan Pérez</field>
-    <field name="apellidos">López</field>
-    <field name="direccion">Calle Veterinaria, Ciudad</field>
+    <field name="apellidos">Gómez</field>
+    <field name="direccion">Avenida Veterinaria, Ciudad</field>
     <field name="telefono">555-1234</field>
     <field name="correo">juan.perez@veterinaria.com</field>
-    <field name="idATS">ATS123456</field>
-    <field name="especialidad">Cardiología</field>
     <field name="clinicas_id" ref="clinica_demo"/>
 </record>
-<record id="cita_demo" model="veterinariaupo.cita">
-    <field name="id_cita">1</field>
-    <field name="fecha">2023-01-01 09:00:00</field>
-    <field name="duracion">60</field>
-    <field name="descripcion">Consulta regular</field>
-    <field name="microChip" ref="mascota_demo"/>
-    <field name="veterinario_id" ref="veterinario_demo"/>
+    <record id="cita_demo" model="veterinariaupo.cita">
+        <field name="id_cita">1</field>
+        <field name="fecha">2023-01-01 09:00:00</field>
+        <field name="duracion">60</field>
+        <field name="descripcion">Consulta regular</field>
+        <field name="microChip" ref="mascota_demo"/>
+        <field name="veterinario_id" ref="veterinario_demo"/>
+    </record>
+
+    <record id="cliente_demo" model="veterinariaupo.cliente">
+        <field name="carnet_id">123456789</field>
+        <field name="direccion">Calle Principal, Ciudad</field>
+        <field name="photo">Base64 encoded image data</field>
+    </record>
+
+    <record id="laboratorio_demo" model="veterinariaupo.laboratorio">
+        <field name="nombre">Laboratorio ABC</field>
+        <field name="direccion">Calle de Pruebas, Ciudad</field>
+        <field name="correo">info@lababc.com</field>
+        <field name="telefono">987654321</field>
+    </record>
+
+    <record id="mascota_demo" model="veterinariaupo.mascota">
+        <field name="microChip">123</field>
+        <field name="nombre">Max</field>
+        <field name="fechaNacimiento">2022-01-01</field>
+        <field name="vivo">vivo</field>
+        <field name="sexo">macho</field>
+        <field name="especie">dog</field>
+        <field name="raza">Labrador</field>
+        <field name="peso">25.5</field>
+        <field name="photo">Base64 encoded image data</field> <!-- Agrega una imagen en formato Base64 -->
+        <field name="carnets_id" ref="cliente_demo"/>
+        <field name="seguro_id" ref="seguro_demo"/>
+    </record>
+
+    <record id="medicina_demo" model="veterinariaupo.medicina">
+        <field name="codigo_nacional">123</field>
+        <field name="nombre">Paracetamol para Mascotas</field>
+        <field name="precio">15.99</field>
+        <field name="caducidad">2023-12-01</field>
+        <field name="descripcion">Alivio del dolor en mascotas</field>
+        <field name="prospecto">www.medicina-xyz.com/prospecto</field>
+        <field name="laboratorios_id" ref="laboratorio_demo"/>
+        <field name="tratamiento_id" ref="tratamiento_demo"/>
+        <field name="tipo_medicina_id" ref="tipo_medicina_demo"/>
+    </record>
+
+    <record id="pruebamedica_demo" model="veterinariaupo.pruebamedica">
+        <field name="id_pruebamedica">1</field>
+        <field name="tipo">Análisis de Sangre</field>
+        <field name="fecha">2023-01-15 10:00:00</field>
+        <field name="descripcion">Análisis rutinario</field>
+        <field name="ats_id" ref="ats_demo"/>
+        <field name="cita_id" ref="cita_demo"/>
+    </record>
+
+<record id="tratamiento_demo" model="veterinariaupo.tratamiento">
+    <field name="nombre">Vacunación contra la rabia</field>
+    <field name="descripcion">Vacunación anual para prevenir la rabia en mascotas</field>
+    <field name="precio">30.0</field>
+</record>
+
+<record id="tipo_medicina_demo" model="veterinariaupo.tipomedicina">
+    <field name="nombre">Antibiótico</field>
+    <field name="descripcion">Medicamento para tratar infecciones bacterianas</field>
+</record>
+
+<record id="seguro_demo" model="veterinariaupo.seguro">
+    <field name="numeroPoliza">123456</field>
+    <field name="precio">50.0</field>
+    <field name="tipo">Seguro de salud para mascotas</field>
+    <field name="condiciones">Cobertura para consultas y tratamientos médicos</field>
+</record>
+
+<record id="tipo_medicina_demo_2" model="veterinariaupo.tipomedicina">
+    <field name="nombre">Antiparasitario</field>
+</record>
+
+<record id="tratamiento_demo_2" model="veterinariaupo.tratamiento">
+    <field name="id_tratamiento">TRAT123</field>
+    <field name="descripcion">Tratamiento para infección respiratoria</field>
+    <field name="inicio_tratamiento" eval="datetime.now().strftime('%Y-%m-%d %H:%M:%S')"/>
+    <field name="fin_tratamiento" eval="(datetime.now() + timedelta(days=7)).strftime('%Y-%m-%d %H:%M:%S')"/>
+</record>
+
+<record id="veterinario_demo_2" model="veterinariaupo.veterinario">
+    <field name="dni">987654321</field>
+    <field name="nombre">Dra. Maria</field>
+    <field name="apellidos">Martínez</field>
+    <field name="direccion">Calle Veterinaria, Ciudad</field>
+    <field name="telefono">555-4321</field>
+    <field name="correo">maria.garcia@veterinaria.com</field>
+    <field name="especialidad">dermatologia</field>
+    <field name="clinicas_id" ref="clinica_demo"/>
 </record>
 
 </odoo>
