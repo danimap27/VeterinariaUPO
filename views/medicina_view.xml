@@ -1,0 +1,43 @@
+<odoo>
+<record id="veterinariaupo_medicina_form_view" model="ir.ui.view">
+    <field name="name">veterinariaupo.medicina.form</field>
+    <field name="model">veterinariaupo.medicina</field>
+    <field name="arch" type="xml">
+       
+                <form string="Medicina">
+                    <sheet>
+                        <group>
+                            <field name="codigo_nacional" />
+                            <field name="nombre" />
+                            <field name="precio"/>
+                            <field name="caducidad"/>
+                            <field name="descripcion"/>
+                            <field name="prospecto"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    
+<record id="veterinariaupo_medicina_view_tree" model="ir.ui.view">
+    <field name="name">veterinariaupo.medicina.view.tree</field>
+    <field name="model">veterinariaupo.medicina</field>
+    <field name="arch" type="xml">
+        <tree string="tree_string">
+             <field name="codigo_nacional" />
+                <field name="nombre" />
+                <field name="precio"/>
+                <field name="caducidad"/>
+                   <field name="descripcion"/>
+                   <field name="prospecto"/>
+        </tree>
+    </field>
+</record>
+
+<record id="medicina_list_action" model="ir.actions.act_window">
+        <field name="name">Vista Medicina</field>
+        <field name="res_model">veterinariaupo.medicina</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
