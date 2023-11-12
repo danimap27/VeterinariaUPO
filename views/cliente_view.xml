@@ -1,0 +1,51 @@
+<odoo>
+        <record id="cliente_view" model="ir.ui.view">
+            <field name="name">cliente.form</field>
+            <field name="model">veterinariaupo.cliente</field>
+            <field name="arch" type="xml">
+                <form string="Cliente">
+                    <sheet>
+                    <group>
+                        <field name="dni"/>
+                        <field name="nombre"/>
+                        <field name="apellidos"/>
+                        <field name="direccion"/>
+                        <field name="telefono"/>
+                        <field name="correo"/>
+                        <field name="carnet_id"/>
+                        <field name="photo" nolabel="1" widget="image" class="oe_avatar"/>
+                    </group>
+                    <group>
+                        <notebook>
+                            <page string="Mascotas">
+                                <field name="mascotas_ids" widget="many2many_tags"/>
+                            </page>
+                        </notebook>
+                    </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="cliente_tree_view" model="ir.ui.view">
+            <field name="name">veterinariaupo.cliente.tree</field>
+            <field name="model">veterinariaupo.cliente</field>
+            <field name="arch" type="xml">
+                <tree string="Clientes">
+                    <field name="dni"/>
+                    <field name="nombre"/>
+                    <field name="apellidos"/>
+                    <field name="direccion"/>
+                    <field name="telefono"/>
+                    <field name="correo"/>
+                    <field name="carnet_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="cliente_list_action" model="ir.actions.act_window">
+            <field name="name">Clientes</field>
+            <field name="res_model">veterinariaupo.cliente</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+</odoo>
