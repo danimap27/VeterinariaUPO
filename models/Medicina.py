@@ -13,3 +13,5 @@ class Medicina(models.Model):
     prospecto = fields.Char('Prospecto',size = 20,required=True)
     
     laboratorios_id = fields.Many2many('veterinariaupo.laboratorio',string='codigo_nacional')
+    tratamiento_id = fields.Many2one('veterinariaupo.tratamiento', string='Tratamiento')
+    tipo_medicina_id = fields.Many2one('veterinariaupo.tipomedicina', string='Tipo de Medicina')

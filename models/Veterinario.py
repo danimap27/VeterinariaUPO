@@ -17,7 +17,7 @@ class Veterinario(models.Model):
     ('anestesiologia', 'Anestesiología Veterinaria')
     ], string='Especialidad', required=True)
 
-    photo = fields.Binary('photo_Mascota')
+    photo = fields.Binary('photo_Veterinario')
     
     clinicas_id = fields.Many2one('veterinariaupo.clinica', string='Clinica')
     cita_ids = fields.One2many('veterinariaupo.cita', 'veterinario_id', string='Citas del veterinario')

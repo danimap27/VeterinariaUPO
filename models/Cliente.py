@@ -7,7 +7,7 @@ class Cliente(models.Model):
 
     carnet_id = fields.Integer(int= 'carnet_id', size = 9, required = True, help="Identificador cliente")
     direccion = fields.Char(String = 'direccion', size = 20, required = True, help="Direccion del cliente")
-    photo = fields.Binary('photo_Mascota')
+    photo = fields.Binary('photo_Cliente')
     
-   mascotas_ids = fields.Many2many('veterinariaupo.mascota', string='Mascota')
+    mascotas_ids = fields.Many2many('veterinariaupo.mascota', string='Mascota')
 

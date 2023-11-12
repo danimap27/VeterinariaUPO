@@ -20,6 +20,7 @@ class Mascota(models.Model):
 
     carnets_id = fields.Many2many('veterinariaupo.cliente',string='Duenyo de la mascota')
     seguro_id = fields.Many2one('veterinariaupo.seguro', string='Numero de Poliza')
+    citas_ids = fields.One2many('veterinariaupo.cita', 'microChip', string='Citas de la mascota')
 
  
  

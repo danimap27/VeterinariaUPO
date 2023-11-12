@@ -6,8 +6,7 @@ class ATS(models.Model):
     _inherit = 'veterinariaupo.persona'
     
     idATS = fields.Char('ID ATS', size=9, required=True, help="Identificación del ATS")
-    #cambiar por selection
     especialidad = fields.Char('Especialidad', size=20, required=True, help="Especialidad del ATS")
-    #Esperar a que el modelo este creado
-    #prueba_medicas = fields.One2many('veterinariaupo.pruebamedica', string='Pruebas médicas')
+    
+    prueba_medicas = fields.One2many('veterinariaupo.pruebamedica', 'ats_id', string='Pruebas médicas')
     laboratorios_id = fields.Many2one('veterinariaupo.laboratorio', string='Laboratorio')

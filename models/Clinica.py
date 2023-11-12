@@ -11,4 +11,3 @@ class Clinica(models.Model):
     # Relación con la clase Veterinario (1 a muchos)
     veterinarios_ids = fields.One2many('veterinariaupo.veterinario', 'clinicas_id', string='Veterinarios')
     
-    

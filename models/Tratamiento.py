@@ -9,3 +9,6 @@ class Tratamiento(models.Model):
     descripcion = fields.Text('Descripcion tratamiento', help="descripcion de tratamiento")
     fin_tratamiento = fields.Datetime('Fin de tratamiento',required=True, autodate = True )
     inicio_tratamiento = fields.Datetime('Inicio de tratamiento',required=True, autodate = True )
+
+    cita_id = fields.Many2one('veterinariaupo.cita', string='Cita', required=True)
+    medicinas_ids = fields.One2many('veterinariaupo.medicina', 'tratamiento_id', string='Medicinas')
