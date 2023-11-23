@@ -11,7 +11,9 @@ class Medicina(models.Model):
     caducidad = fields.Datetime('Caducidad',required=True, autodate = True )
     descripcion = fields.Text('Descripcion')
     prospecto = fields.Char('Prospecto',size = 20,required=True)
-    
+  #relaciones
     laboratorios_id = fields.Many2many('veterinariaupo.laboratorio',string='codigo_nacional')
     tratamiento_id = fields.Many2one('veterinariaupo.tratamiento', string='Tratamiento')
-    tipo_medicina_id = fields.Many2one('veterinariaupo.tipomedicina', string='Tipo de Medicina')
+    tipos_medicina_id = fields.One2many('veterinariaupo.tipomedicina','medicinas_ids', string='Tipo de Medicinas')
+    
+   
