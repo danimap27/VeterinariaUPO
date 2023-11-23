@@ -14,6 +14,19 @@
                             <field name="descripcion"/>
                             <field name="prospecto"/>
                         </group>
+                         <group>
+                        <notebook>
+                            <page string="laboratorios">
+                                <field name="laboratorios_id" widget="many2many_tags"/>
+                            </page>
+                            <page name="tratamiento" >
+                                <field name="tratamiento_id" widget="many2one_tags"/>
+                            </page>
+                            <page name="tipo medicina" >
+                                <field name="tipos_medicina_id" widget="one2many_tags" options="{'readonly': False}" />
+                            </page>
+                        </notebook>
+                    </group>
                     </sheet>
                 </form>
             </field>
