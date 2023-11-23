@@ -11,6 +11,14 @@
                         <field name="fin_tratamiento" string="Fin del tratamiento" />
                         <field name="inicio_tratamiento" string="Inicio del tratamiento" />
                     </group>
+                     <notebook>
+                        <page string="Medicinas" >
+                            <field name="medicinas_ids" widget="one2many_list" options="{'readonly': False}" />
+                        </page>
+                        <page name="Cita" >
+                            <field name="cita_id" widget="many2one_list" />
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
