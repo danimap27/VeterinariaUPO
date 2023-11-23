@@ -10,6 +10,11 @@
                             <field name="nombre" />
                             
                         </group>
+                         <notebook>
+                            <page name="Medicinas" >
+                                <field name="medicinas_ids" widget="many2one_tags" />
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
