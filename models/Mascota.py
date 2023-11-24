@@ -22,5 +22,5 @@ class Mascota(models.Model):
     seguro_id = fields.Many2one('veterinariaupo.seguro', string='Numero de Poliza')
     citas_ids = fields.One2many('veterinariaupo.cita', 'microChip', string='Citas de la mascota')
 
- 
+    _sql_constraints = [('microChip sqlConstr','UNIQUE (microChip)','Cada mascota debe tener su propia primary key (primary key')]
  
