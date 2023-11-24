@@ -12,3 +12,7 @@ class Seguro(models.Model):
     idMascota = fields.One2many('veterinariaupo.mascota','microChip','Mascota')
 
     _sql_constraints = [('numeroPoliza sqlConstr','UNIQUE (numeroPoliza)','Cada seguro tiene un numero de poliza distinto (primary key')]
+
+    @api.depends('idMascota')
+    def _calculoNumPoliza(self): 
+            self.numeroPoliza = (self.idMascota * 2)
