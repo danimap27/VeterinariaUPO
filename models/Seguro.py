@@ -10,3 +10,5 @@ class Seguro(models.Model):
     condiciones = fields.Char(String = 'condicionesSeguro',autodate = True)
 
     idMascota = fields.One2many('veterinariaupo.mascota','microChip','Mascota')
+
+    _sql_constraints = [('numeroPoliza sqlConstr','UNIQUE (numeroPoliza)','Cada seguro tiene un numero de poliza distinto (primary key')]
