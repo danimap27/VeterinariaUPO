@@ -11,4 +11,6 @@ class Laboratorio(models.Model):
 
     codigo_nacional = fields.Many2many('veterinariaupo.medicina', string='Medicina')
     atsID = fields.One2many('veterinariaupo.ats','direccion','ATS')
+
+    _sql_constraints = [('direccionLabUnica','UNIQUE (direccion)','Solo puede haber un laboratorio por direccion (primary key')]
     
