@@ -8,8 +8,11 @@
                     <group>
                         <field name="numeroPoliza" string="ID de la poliza" />
                         <field name="precio" string="Precio "/>
-                        <field name="tipo" string="tipoPoliza" />
+                        <field name="tipo" string="Tipo de Poliza" />
                         <field name="condiciones" string="Condiciones" />
+                        <filter string="A todo Riesgo" name="filter_riesgo" domain="[('tipo', '=', 'todoRiesgo')]"/>
+                        <filter string="Seguro de Terceros" name="filter_terceros" domain="[('tipo', '=', 'seguroTerceros')]"/>
+                        <filter string="Seguro de vida" name="filter_vida" domain="[('tipo', '=', 'seguroVida')]"/>
                     </group>
                 </sheet>
             </form>
@@ -29,9 +32,22 @@
         </field>
     </record>
 
+    <record id="seguro_search_view" model="ir.ui.view">
+        <field name="name">seguro.search</field>
+        <field name="model">veterinariaupo.seguro</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter name="search_tipo_todoRiesgo" string="Todo Riesgo" domain="[('tipo','=','todoRiesgo')]" />
+                <filter name="search_tipo_terceros" string="Terceros" domain="[('tipo','=','seguroTerceros')]" />
+                <filter name="search_tipo_vida" string="Vida" domain="[('tipo','=','seguroVida')]" />
+            </search>
+        </field>
+    </record>
+
     <record id="seguro_list_action" model="ir.actions.act_window">
         <field name="name">Vista Seguros</field>
         <field name="res_model">veterinariaupo.seguro</field>
+        <field name="search_view_id" ref="seguro_search_view"/>
         <field name="view_mode">tree,form</field>
     </record>
 </odoo>
