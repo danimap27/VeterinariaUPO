@@ -6,7 +6,11 @@ class Seguro(models.Model):
     #Atributos Seguro
     numeroPoliza = fields.Integer(int="numPoliza", required = True, help = "Identificador Seguro") #Primary Key , compute='_calculoNumPoliza', store=True
     precio = fields.Float(float='precioSeguro', required = True)
-    tipo = fields.Char(String = 'tipoSeguro', size = 256, required = True)
+    tipo = fields.Selection([('todoRiesgo','Seguro a todo riesgo'),
+                                     ('seguroTerceros','Seguro a terceros'),
+                                     ('seguroVida','Seguro de vida'),
+                                     ], 
+                                     'Tipo de Seguro', required = True)
     condiciones = fields.Char(String = 'condicionesSeguro',autodate = True)
 
     idMascota = fields.One2many('veterinariaupo.mascota','microChip','Mascota')
