@@ -43,9 +43,11 @@
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo/demo.xml',
         'demo/veterinariaupo.seguro.csv',
         'demo/veterinariaupo.mascota.csv',
+        'demo/ats_demo.csv',
+        'demo/cliente_demo.csv',
+        'demo/veterinario_demo.csv',
     ],    
     'auto_install': True,
     'application': True

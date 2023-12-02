@@ -1,0 +1,4 @@
+"DNI","Nombre","Apellidos","Direccion","Telefono","Correo","ID ATS","Especialidad"
+"123456789","Juan","Perez","Calle 123","987654321","juan.perez@example.com","ATS001","Cardiología"
+"987654321","Maria","Lopez","Avenida XYZ","123456789","maria.lopez@example.com","ATS002","Dermatología"
+"456789012","Pedro","Gomez","Plaza Principal","567891923","pedro.gomez@example.com","ATS003","Oftalmología"
