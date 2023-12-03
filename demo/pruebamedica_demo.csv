@@ -1,0 +1,4 @@
+"Número de Prueba Médica","Tipo de Prueba Médica","Fecha","Descripción","ATS","Cita"
+"1","Análisis de Sangre","2023-12-10 10:30:00","Análisis completo de sangre","ATS001","1"
+"2","Radiografía","2023-12-15 14:00:00","Radiografía de torax","ATS002","2"
+"3","Ecografía","2023-12-20 11:15:00","Ecografía abdominal","ATS003","3"
