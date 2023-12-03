@@ -1,23 +1,38 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 class Cita(models.Model):
     _name = 'veterinariaupo.cita'
     _description = 'Modelo Cita'
 
-    
-    id_cita = fields.Integer('Id Cita',required=True, help = "Identificador de cita" ) #Primary key
-    fecha = fields.Datetime('Fecha',required=True, autodate = True )
-    duracion = fields.Integer(int = "Duracion", required=True)
+    id_cita = fields.Integer('Id Cita', required=True, help="Identificador de cita")  # Primary key
+    fecha = fields.Datetime('Fecha', required=True, autodate=True)
+    duracion = fields.Integer("Duracion (minutos)", required=True)
     descripcion = fields.Text('Descripcion')
 
-    # Relación con la clase Mascota (Muchos a 1)
     microChip = fields.Many2one('veterinariaupo.mascota', string='Mascota')
-
-    # Relación con la clase Veterinario (Muchos a 1)
     veterinario_id = fields.Many2one('veterinariaupo.veterinario', string='Veterinario')
-
-    # Relación con la clase Tratamiento (1 a muchos)
     tratamientos_ids = fields.One2many('veterinariaupo.tratamiento', 'cita_id', string='Tratamientos')
-
-    # Relación con la clase PruebaMedica (1 a muchos)
     pruebas_medicas_ids = fields.One2many('veterinariaupo.pruebamedica', 'cita_id', string='Pruebas Médicas')
+
+    @api.constrains('fecha', 'duracion')
+    def check_fecha_duracion(self):
+        # Asegurarse de que la duración sea un valor positivo
+        if self.duracion <= 0:
+            raise models.ValidationError('La duración debe ser un valor positivo.')
+
+        # Asegurarse de que la fecha no esté en el pasado
+        if self.fecha < fields.Datetime.now():
+            raise models.ValidationError('La fecha de la cita no puede estar en el pasado.')
+
+    @api.constrains('tratamientos_ids')
+    def check_tratamientos(self):
+        # Asegurarse de que hay al menos un tratamiento asociado a la cita
+        if not self.tratamientos_ids:
+            raise models.ValidationError('Debe haber al menos un tratamiento asociado a la cita.')
+
+        # Asegurarse de que la duración total de los tratamientos no exceda la duración de la cita
+        duracion_total_tratamientos = sum(tratamiento.duracion for tratamiento in self.tratamientos_ids)
+        if duracion_total_tratamientos > self.duracion:
+            raise models.ValidationError('La duración total de los tratamientos no puede exceder la duración de la cita.')
+
+
