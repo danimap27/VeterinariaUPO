@@ -48,6 +48,9 @@
         'demo/ats_demo.csv',
         'demo/cliente_demo.csv',
         'demo/veterinario_demo.csv',
+        'demo/cita_demo.csv',
+        'demo/clinica_demo.csv',
+        'demo/pruebamedica_demo.csv',
     ],    
     'auto_install': True,
     'application': True
