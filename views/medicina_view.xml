@@ -1,56 +1,77 @@
 <odoo>
-<record id="veterinariaupo_medicina_form_view" model="ir.ui.view">
-    <field name="name">veterinariaupo.medicina.form</field>
-    <field name="model">veterinariaupo.medicina</field>
-    <field name="arch" type="xml">
-       
-                <form string="Medicina">
-                    <sheet>
-                        <group>
-                            <field name="codigo_nacional" />
-                            <field name="nombre" />
-                            <field name="precio"/>
-                            <field name="caducidad"/>
-                            <field name="descripcion"/>
-                            <field name="prospecto"/>
-                        </group>
-                         <group>
+    <record id="veterinariaupo_medicina_form_view" model="ir.ui.view">
+        <field name="name">veterinariaupo.medicina.form</field>
+        <field name="model">veterinariaupo.medicina</field>
+        <field name="arch" type="xml">
+
+            <form string="Medicina">
+                <header>
+                    <button name="btn_submit_to_experimental" string="Experimentar" type="object" class="oe_highlight" />
+                    <button name="btn_submit_to_descatalogar" string="Descatalogar" type="object" class="oe_highlight" />
+                    <button name="btn_submit_to_oficializar" string="Oficializar" type="object" class="oe_highlight" />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="codigo_nacional" />
+                        <field name="nombre" />
+                        <field name="estado" widget="statusbar"/>
+                        <field name="precio"/>
+                        <field name="caducidad"/>
+                        <field name="descripcion"/>
+                        <field name="prospecto"/>
+                        <field name="numTipos"/>
+                    </group>
+                    <group>
                         <notebook>
                             <page string="laboratorios">
                                 <field name="laboratorios_id" widget="many2many_tags"/>
                             </page>
-                            <page name="tratamiento" >
+                            <page name="tratamiento">
                                 <field name="tratamiento_id" widget="many2one_tags"/>
                             </page>
-                            <page name="tipo medicina" >
+                            <page name="tipo medicina">
                                 <field name="tipos_medicina_id" widget="one2many_tags" options="{'readonly': False}" />
                             </page>
                         </notebook>
                     </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-    
-<record id="veterinariaupo_medicina_view_tree" model="ir.ui.view">
-    <field name="name">veterinariaupo.medicina.view.tree</field>
-    <field name="model">veterinariaupo.medicina</field>
-    <field name="arch" type="xml">
-        <tree string="tree_string">
-             <field name="codigo_nacional" />
+
+    <record id="veterinariaupo_medicina_view_tree" model="ir.ui.view">
+        <field name="name">veterinariaupo.medicina.view.tree</field>
+        <field name="model">veterinariaupo.medicina</field>
+        <field name="arch" type="xml">
+            <tree string="tree_string">
+                <field name="codigo_nacional" />
                 <field name="nombre" />
+                <field name="estado"/>
                 <field name="precio"/>
                 <field name="caducidad"/>
-                   <field name="descripcion"/>
-                   <field name="prospecto"/>
-        </tree>
-    </field>
-</record>
+                <field name="descripcion"/>
+                <field name="prospecto"/>
+                <field name="numTipos"/>
+            </tree>
+        </field>
+    </record>
 
-<record id="medicina_list_action" model="ir.actions.act_window">
+    <record id="veterinariaupo_medicina_graph_view" model="ir.ui.view">
+        <field name="name">veterinariaupo.medicina.graph</field>
+        <field name="model">veterinariaupo.medicina</field>
+        <field name="arch" type="xml">
+            <graph string="Numero de tipos por medicina" type="bar">
+                <field name="nombre" />
+                <field name="numTipos" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="medicina_list_action" model="ir.actions.act_window">
         <field name="name">Vista Medicina</field>
         <field name="res_model">veterinariaupo.medicina</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,graph</field>
     </record>
 </odoo>
+
