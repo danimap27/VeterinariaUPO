@@ -54,7 +54,7 @@ class Medicina(models.Model):
           'value':{'caducidad':fields.Date.today()},
           'warning': {
             'title':'Fecha introducida incorrecta',
-            'message':'La fecha introducida no puede ser menor a la fecha actual'
+            'message':'La medicina ha caducado'
           }
         }
         return resultado
