@@ -1,13 +1,14 @@
-<!--
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  MODIFICAR A MEDIDA QUE LO VAYAMOS HACIENDO
-    <!-- E2. Esquema basico -->
-    <report id="action_veterinariaupo_classes_report" string="Report" model="gym.classes" report_type="qweb-pdf" name="gym.gym_classes_template" />
 
-    <!-- E3 -->
-    <report id="report_users" string="User report" model="gym.users" report_type="qweb-pdf" name="gym.report_user" />
+    <record id="report_veterinariaupo_laboratorio_report" model="ir.actions.report">
+        <field name="name">Laboratorio Report</field>
+        <field name="model">veterinariaupo.laboratorio</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinariaupo.veterinariaupo_laboratorio_template</field>
+        <field name="binding_model_id" ref="model_veterinariaupo_laboratorio"/>
+        <field name="binding_type">report</field>
+    </record>
 
 </odoo>
     
--->
