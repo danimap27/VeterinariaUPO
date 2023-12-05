@@ -44,19 +44,19 @@
         'views/menu.xml',
     ],
     # only loaded in demonstration mode
-    'demo': [
-        'demo/veterinariaupo.seguro.csv',
+    'demo': [        
+        'demo/vetarinariaupo.ats.csv',
+        'demo/vetarinariaupo.cliente.csv',
+        'demo/vetarinariaupo.veterinario.csv',
         'demo/veterinariaupo.mascota.csv',
-        'demo/ats_demo.csv',
-        'demo/cliente_demo.csv',
-        'demo/veterinario_demo.csv',
-        'demo/cita_demo.csv',
-        'demo/clinica_demo.csv',
-        'demo/pruebamedica_demo.csv',
+        'demo/veterinariaupo.seguro.csv',
+        'demo/vetarinariaupo.cita.csv',
+        'demo/vetarinariaupo.clinica.csv',
+        'demo/vetarinariaupo.pruebamedica.csv',
     ],    
     'auto_install': True,
     'application': True,
-    'icons': {
+    'logo': {
         '128': 'src/logo.png'
     }
 }

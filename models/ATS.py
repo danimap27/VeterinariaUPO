@@ -15,11 +15,6 @@ class ATS(models.Model):
         ('unique_idATS', 'unique(idATS)', 'El ID ATS debe ser único.'),
     ]
     
-    @api.onchange('idATS')
-    def _onchange_idATS(self):
-        if self.idATS:
-            self.name = f"ATS - {self.idATS}"
-
     @api.onchange('especialidad')
     def _onchange_especialidad(self):
         if self.especialidad:
