@@ -15,7 +15,6 @@ class Laboratorio(models.Model):
     atsID = fields.One2many('veterinariaupo.ats','direccion','ATS')
 
     _sql_constraints = [('direccionLabUnica','UNIQUE (direccion)','Solo puede haber un laboratorio por direccion (primary key')]
-    #hola buenos dias
     @api.onchange('telefono')
     def valida_telefono(self):
         result = {}
