@@ -21,3 +21,4 @@ class Veterinario(models.Model):
     
     clinicas_id = fields.Many2one('veterinariaupo.clinica', string='Clinica')
     cita_ids = fields.One2many('veterinariaupo.cita', 'veterinario_id', string='Citas del veterinario')
+

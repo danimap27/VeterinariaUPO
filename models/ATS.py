@@ -19,3 +19,15 @@ class ATS(models.Model):
     def _onchange_especialidad(self):
         if self.especialidad:
             self.especialidad = self.especialidad.upper()
+
+    @api.onchange('idATS')
+    def comprobar_idATS(self):
+      if int(self.idATS) < 0:
+        resultado = {
+          'value':{'idATS':str(abs(int(self.idATS)))},
+          'warning':{
+              'title':'Id incorrecto',
+              'message':'El id no puede ser menor que 0'
+          }
+        }
+        return resultado
