@@ -24,8 +24,26 @@ class Mascota(models.Model):
 
     _sql_constraints = [('microChip_sqlConstr','UNIQUE (microChip)','Cada mascota debe tener su propia primary key (primary key')]
  
-    @api.onchange('fecha_nacimiento')
-    def _onchange_fecha_nacimiento(self):
-        for mascota in self:
-            if mascota.fecha_nacimiento and mascota.fecha_nacimiento > fields.Date.today():
-                raise ValidationError('La fecha de nacimiento no puede ser posterior a la fecha actual.')
+    @api.onchange('fechaNacimiento')
+    def _onchange_fechaNacimiento(self):
+            if self.fechaNacimiento and self.fechaNacimiento > fields.Date.today():
+                resultado = {
+                'warning': {
+                     'title':'Fecha Introducida no valida',
+                     'message':'No puede ser posterior a la fecha actual'
+                }
+            }
+            return resultado
+            
+    @api.onchange('peso')
+    def _onchange_Peso(self):
+        if self.peso < 0:
+            resultado = {
+                'value': {'peso':0},
+                'warning': {
+                     'title':'Valores incorrectos',
+                     'message':'No puede ser un peso negativo'
+                }
+            }
+            return resultado
+                
