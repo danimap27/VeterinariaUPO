@@ -9,6 +9,12 @@
                     <group>
                         <field name="idATS"/>
                         <field name="especialidad"/>
+                        <field name="dni"/>
+                        <field name="nombre"/>
+                        <field name="apellidos"/>
+                        <field name="direccion"/>
+                        <field name="telefono"/>
+                        <field name="correo"/>
                     </group>
                     <notebook>
                         <page string="Pruebas Médicas" >
@@ -27,6 +33,12 @@
             <tree string="ATS Tree">
                 <field name="idATS"/>
                 <field name="especialidad"/>
+                <field name="dni"/>
+                <field name="nombre"/>
+                <field name="apellidos"/>
+                <field name="direccion"/>
+                <field name="telefono"/>
+                <field name="correo"/>
             </tree>
         </field>
     </record>

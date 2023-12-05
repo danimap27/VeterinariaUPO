@@ -1,4 +1,4 @@
-rom odoo import models, fields,api
+from odoo import models, fields,api
 from datetime import datetime
 
 class Tratamiento(models.Model):
