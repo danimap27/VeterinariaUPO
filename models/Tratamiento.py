@@ -1,10 +1,10 @@
-from odoo import models, fields,api
+rom odoo import models, fields,api
 from datetime import datetime
 
 class Tratamiento(models.Model):
     _name = 'veterinariaupo.tratamiento'
     _description = 'Modelo Tratamiento'
-    
+    _rec_name = 'id_tratamiento'
     
     id_tratamiento = fields.Char('Id tratamiento',size=10, required=True)
     descripcion = fields.Text('Descripcion tratamiento', help="descripcion de tratamiento")
@@ -17,23 +17,26 @@ class Tratamiento(models.Model):
     _sql_constraints = [('id_tratamiento_sqlConstr','UNIQUE (id_tratamiento)','Cada tratamiento tiene un id distinto (primary key')]
     #validaciones
     
-    @api.constrains('inicio_tratamiento','fin_tratamiento')
+    @api.onchange('inicio_tratamiento','fin_tratamiento')
     def checkFechas(self):
-        if not self.verificaFechas(self.inicio_tratamiento,self.fin_tratamiento):
-           raise models.ValidationError('La fecha fin no puede ser menor que la fecha inicio')
-        elif not self.verificaFechaPresente(self.inicio_tratamiento,self.fin_tratamiento):
-            raise models.ValidationError('Las fechas no pueden estar en el pasado')
-    
-    
-    
-    
-    #funcion para verificar que las fechas tienen sentido
-    def verificaFechas(self,fecha_inicio,fecha_fin):
-            return fecha_fin > fecha_inicio
-    
-    #funcion para verificar que las fechas no estan en el pasado
-    
-    def verificaFechaPresente(self,fecha_inicio,fecha_fin):
-        fecha_actual = fields.Date.context_today(self)
+        resultado = {}
+        if self.inicio_tratamiento and self.fin_tratamiento and self.inicio_tratamiento > self.fin_tratamiento:
+            resultado = {
+                'value':{'inicio_tratamiento':fields.Date.today(),'fin_tratamiento':fields.Date.today()},
+                'warning':{
+                    'title':'Fecha introducida incorrecta',
+                    'message':'La fecha inicio no puede ser mayor que la fecha fin'
+                }
+            }
+        elif self.inicio_tratamiento and self.fin_tratamiento:
+            if self.inicio_tratamiento < fields.Date.today() or self.fin_tratamiento < fields.Date.today():
+                resultado = {
+                    'value':{'inicio_tratamiento':fields.Date.today(),'fin_tratamiento':fields.Date.today()},
+                    'warning':{
+                        'title':'Fecha introducida incorrecta',
+                        'message':'Ninguna de las fechas pueden estar en el pasado'
+                }
+            }
+        return resultado
         
-        return fecha_inicio >= fecha_actual and fecha_fin >= fecha_actual 
+   
