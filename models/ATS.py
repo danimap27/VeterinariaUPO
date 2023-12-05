@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class ATS(models.Model):
     _name = 'veterinariaupo.ats'
@@ -14,6 +15,13 @@ class ATS(models.Model):
     _sql_constraints = [
     ('unique_idATS', 'unique(idATS)', 'El ID ATS debe ser único. No se puede agregar dos ATS con el mismo ID.'),
     ]
+    
+    @api.constrains('idATS')
+    def _check_idATS(self):
+        for record in self:
+            if int(record.idATS) < 0:
+                raise ValidationError("El ID ATS no puede ser un valor negativo.")
+
 
     @api.onchange('especialidad')
     def _onchange_especialidad(self):

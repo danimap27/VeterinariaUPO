@@ -1,4 +1,5 @@
 from odoo import models, fields
+from odoo.exceptions import ValidationError
 
 class Veterinario(models.Model):
     _name = 'veterinariaupo.veterinario'
@@ -21,4 +22,9 @@ class Veterinario(models.Model):
     
     clinicas_id = fields.Many2one('veterinariaupo.clinica', string='Clinica')
     cita_ids = fields.One2many('veterinariaupo.cita', 'veterinario_id', string='Citas del veterinario')
+
+
+    _sql_constraints = [
+        ('unique_name', 'unique(name)', 'El ID Veterinario debe ser único. No se pueden agregar dos veterinarios con el mismo ID.'),
+    ]
 

@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class Cliente(models.Model):
     _name = 'veterinariaupo.cliente'
@@ -9,6 +10,12 @@ class Cliente(models.Model):
     photo = fields.Binary('photo_Cliente')
     
     mascotas_ids = fields.Many2many('veterinariaupo.mascota', string='Mascota')
+    
+    @api.constrains('carnet_id')
+    def _check_carnet_id(self):
+        for record in self:
+            if record.carnet_id < 0:
+                raise ValidationError("El Carnet ID no puede ser un valor negativo.")
 
     @api.onchange('carnet_id')
     def comprobar_carnet_id(self):
