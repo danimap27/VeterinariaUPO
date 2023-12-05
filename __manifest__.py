@@ -55,6 +55,9 @@
         'demo/pruebamedica_demo.csv',
     ],    
     'auto_install': True,
-    'application': True
+    'application': True,
+    'icons': {
+        '128': 'src/logo.png'
+    }
 }
 
