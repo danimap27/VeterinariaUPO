@@ -24,3 +24,8 @@ class Mascota(models.Model):
 
     _sql_constraints = [('microChip_sqlConstr','UNIQUE (microChip)','Cada mascota debe tener su propia primary key (primary key')]
  
+    @api.onchange('fecha_nacimiento')
+    def _onchange_fecha_nacimiento(self):
+        for mascota in self:
+            if mascota.fecha_nacimiento and mascota.fecha_nacimiento > fields.Date.today():
+                raise ValidationError('La fecha de nacimiento no puede ser posterior a la fecha actual.')
