@@ -18,7 +18,7 @@ class Laboratorio(models.Model):
     @api.onchange('telefono')
     def valida_telefono(self):
         result = {}
-        if not self.compruebaTelefono(self.telefono):
+        if self.telefono != False and not self.compruebaTelefono(self.telefono):
             result = {
                 'value': {'telefono': '666666666'},
                 'warning': {
