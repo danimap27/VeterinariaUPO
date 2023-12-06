@@ -23,6 +23,13 @@ class Mascota(models.Model):
     citas_ids = fields.One2many('veterinariaupo.cita', 'microChip', string='Citas de la mascota')
 
     _sql_constraints = [('microChip_sqlConstr','UNIQUE (microChip)','Cada mascota debe tener su propia primary key (primary key')]
+    
+    def btn_submit_to_vivo(self):
+        if(self.vivo == 'Vivo'):
+            self.write({'vivo':'Muerto'})
+        else:
+            self.write({'vivo':'Vivo'})
+        
  
     @api.onchange('fechaNacimiento')
     def _onchange_fechaNacimiento(self):
