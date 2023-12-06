@@ -9,6 +9,14 @@
         <field name="binding_model_id" ref="model_veterinariaupo_laboratorio"/>
         <field name="binding_type">report</field>
     </record>
-
+    
+    <record id="report_veterinariaupo_ats_report" model="ir.actions.report">
+        <field name="name">ATS report</field>
+        <field name="model">veterinariaupo.ats</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinariaupo.veterinariaupo_ats_template</field>
+        <field name="binding_model_id" ref="model_veterinariaupo_ats"/>
+        <field name="binding_type">report</field>
+    </record>
 </odoo>
     

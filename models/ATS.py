@@ -22,7 +22,6 @@ class ATS(models.Model):
             if int(record.idATS) < 0:
                 raise ValidationError("El ID ATS no puede ser un valor negativo.")
 
-
     @api.onchange('especialidad')
     def _onchange_especialidad(self):
         if self.especialidad:
