@@ -20,7 +20,7 @@ class Persona(models.Model):
     @api.onchange('telefono')
     def valida_telefono(self):
         result = {}
-        if not self.compruebaTelefono(self.telefono):
+        if self.telefono != False and not self.compruebaTelefono(self.telefono):
             result = {
                 'value': {'telefono': '666666666'},
                 'warning': {
@@ -38,7 +38,7 @@ class Persona(models.Model):
     @api.onchange('dni')
     def valida_dni(self):
         try:
-            if not self.compruebaDni(self.dni):
+            if self.dni!= False and not self.compruebaDni(self.dni):
                 return {
                     'value': {'dni': '12345678R'},
                     'warning': {
