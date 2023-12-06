@@ -25,10 +25,10 @@ class Mascota(models.Model):
     _sql_constraints = [('microChip_sqlConstr','UNIQUE (microChip)','Cada mascota debe tener su propia primary key (primary key')]
     
     def btn_submit_to_vivo(self):
-        if(self.vivo == 'Vivo'):
-            self.write({'vivo':'Muerto'})
+        if(self.vivo == 'vivo'):
+            self.write({'vivo':'muerto'})
         else:
-            self.write({'vivo':'Vivo'})
+            self.write({'vivo':'vivo'})
         
  
     @api.onchange('fechaNacimiento')
