@@ -1,35 +1,46 @@
 from odoo import models, fields, api
-#Import re sirve para trabajar con expresiones regulares en python
-import re
 
-class Laboratorio(models.Model):
-    _name = 'veterinariaupo.laboratorio'
-    _description = 'Modelo del laboratorio'
-    #Atributos Laboratorio
-    nombre = fields.Char(String = 'nombreLab', size = 256, required = True)
-    direccion = fields.Char(String = 'direccionLaboratorio', required=True) #La primary key
-    correo = fields.Char(String = 'correo')
-    telefono = fields.Integer(int = "telefonoLab", required=True)
+class Seguro(models.Model):
+    _name = 'veterinariaupo.seguro'
+    _description = 'Modelo del seguro'
+    #Atributos Seguro
+    numeroPoliza = fields.Integer(int="numPoliza", required = True, help = "Identificador Seguro") #Primary Key , compute='_calculoNumPoliza', store=True
+    precio = fields.Float(float='precioSeguro', required = True)
+    tipo = fields.Selection([('todoRiesgo','Seguro a todo riesgo'),
+                                     ('seguroTerceros','Seguro a terceros'),
+                                     ('seguroVida','Seguro de vida'),
+                                     ], 
+                                     'Tipo de Seguro', required = True)
+    condiciones = fields.Char(String = 'condicionesSeguro',autodate = True)
 
-    codigo_nacional = fields.Many2many('veterinariaupo.medicina', string='Medicina')
-    atsID = fields.One2many('veterinariaupo.ats','direccion','ATS')
+    idMascota = fields.One2many('veterinariaupo.mascota','microChip','Mascota')
 
-    _sql_constraints = [('direccionLabUnica','UNIQUE (direccion)','Solo puede haber un laboratorio por direccion (primary key')]
-    @api.onchange('telefono')
-    def valida_telefono(self):
-        result = {}
-        if self.telefono != False and not self.compruebaTelefono(self.telefono):
-            result = {
-                'value': {'telefono': '666666666'},
+    _sql_constraints = [('numeroPoliza_sqlConstr','UNIQUE (numeroPoliza)','Cada seguro tiene un numero de poliza distinto (primary key')]
+    
+    def btn_submit_to_tipo(self):
+        if self.tipo == 'todoRiesgo':
+            self.write({'tipo': 'seguroTerceros'})
+        elif self.tipo == 'seguroTerceros':
+            self.write({'tipo': 'seguroVida'})
+        else:
+            self.write({'tipo': 'todoRiesgo'})
+
+        
+    
+    ##@api.depends('idMascota')
+    ##def _calculoNumPoliza(self): 
+    ##        self.numeroPoliza = (self.idMascota * 2)
+    ##
+            
+    @api.onchange('precio')
+    def onchange_precio_seguro(self):
+        resultado = {}
+        if self.precio < 0:
+            resultado = {
+                'value': {'precio':0},
                 'warning': {
-                    'title': 'Error en el telefono',
-                    'message': 'El telefono tiene que ser una cadena de 9 digitos numericos',
+                     'title':'Valores incorrectos',
+                     'message':'No puede tener precio negativo'
                 }
             }
-        return result
-    
-    #Mediante expresion regular comprueba que el numero de telefono tenga 9 digitos, todos numeros
-    def compruebaTelefono(self,telefono):
-        telefono_str = str(telefono)
-        expresion_regular = re.compile(r'^\d{9}$')
-        return expresion_regular.match(telefono_str)      
+            return resultado
