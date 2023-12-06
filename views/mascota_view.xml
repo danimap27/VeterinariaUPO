@@ -4,6 +4,9 @@
         <field name="model">veterinariaupo.mascota</field>
         <field name="arch" type="xml">
             <form string="mascota">
+                <header>
+                    <button name="btn_submit_to_vivo" string="Vivo" type="object" class="oe_highlight" />
+                </header>
                 <sheet layout="auto">
                     <group>
                         <field name="nombre" string="Nombre animal" />
@@ -12,10 +15,15 @@
                         <field name="raza" string="Raza"/>
                         <field name="fechaNacimiento" string="fechaNacimiento"/>
                         <field name="peso" string="Peso"/>
-                        <field name="carnets_id" string="ID Cliente" widget="many2one"/> 
+                        <field name="carnets_id" string="ID Cliente" widget="many2one"/>
                         <field name="microChip" string="Microchip"/>
                     </group>
                 </sheet>
+                <statusbar statusbar_visible="Vivo" statusbar_colors='{"Vivo": "blue", "Muerto": "red"}'>
+                <statusbar>
+                    <field name="vivo" widget="statusbar"/>
+                </statusbar>
+            </statusbar>
             </form>
         </field>
     </record>
@@ -25,6 +33,7 @@
         <field name="model">veterinariaupo.mascota</field>
         <field name="arch" type="xml">
             <tree string="Mascotas">
+                
                 <field name="nombre" string="Nombre animal" />
                 <field name="sexo" string="Sexo" />
                 <field name="especie" string="Mascota: " />
@@ -41,9 +50,9 @@
     </record>
 
     <record id="mascota_list_action" model="ir.actions.act_window">
-      <field name="name">Vista Mascota</field>
-      <field name="res_model">veterinariaupo.mascota</field>
-      <field name="view_mode">tree,form</field>
+        <field name="name">Vista Mascota</field>
+        <field name="res_model">veterinariaupo.mascota</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
 </odoo>
