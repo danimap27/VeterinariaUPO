@@ -4,6 +4,9 @@
         <field name="model">veterinariaupo.seguro</field>
         <field name="arch" type="xml">
             <form string="seguro">
+                <header>
+                    <button name="btn_submit_to_tipo" string="Tipo Seguro" type="object" class="oe_highlight" />
+                </header>
                 <sheet>
                     <group>
                         <field name="numeroPoliza" string="ID de la poliza" />
@@ -15,6 +18,11 @@
                         <filter string="Seguro de vida" name="filter_vida" domain="[('tipo', '=', 'seguroVida')]"/>
                     </group>
                 </sheet>
+                <statusbar statusbar_visible="A todo Riesgo">
+                <statusbar>
+                    <field name="tipo" widget="statusbar"/>
+                </statusbar>
+            </statusbar>
             </form>
         </field>
     </record>
