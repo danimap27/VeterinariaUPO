@@ -17,6 +17,16 @@ class Seguro(models.Model):
 
     _sql_constraints = [('numeroPoliza_sqlConstr','UNIQUE (numeroPoliza)','Cada seguro tiene un numero de poliza distinto (primary key')]
     
+    def btn_submit_to_tipo(self):
+        if self.tipo == 'todoRiesgo':
+            self.write({'tipo': 'seguroTerceros'})
+        elif self.tipo == 'seguroTerceros':
+            self.write({'tipo': 'seguroVida'})
+        else:
+            self.write({'tipo': 'todoRiesgo'})
+
+        
+    
     ##@api.depends('idMascota')
     ##def _calculoNumPoliza(self): 
     ##        self.numeroPoliza = (self.idMascota * 2)
