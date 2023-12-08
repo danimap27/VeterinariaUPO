@@ -11,12 +11,12 @@
                         <p><strong>Apellidos:</strong> <span t-field="ats.apellidos" /></p>
                         <p><strong>DNI:</strong> <span t-field="ats.dni" /></p>
                         <p><strong>Dirección:</strong> <span t-field="ats.direccion" /></p>
-                        <p><strong>Teléfono:</strong> <span t-field="ats.telefono" /></p>
+                        <p><strong>Telefono:</strong> <span t-field="ats.telefono" /></p>
                         <p><strong>Correo:</strong> <span t-field="ats.correo" /></p>
                         <p><strong>Especialidad:</strong> <span t-field="ats.especialidad" /></p>
                         
                         <div t-if="ats.prueba_medicas">
-                            <h3>Pruebas Médicas</h3>
+                            <h3>Pruebas Medicas</h3>
                             <table>
                                 <thead>
                                     <tr>
@@ -34,11 +34,10 @@
                                 </tbody>
                             </table>
                         </div>
-                        
                         <div t-if="ats.laboratorios_id">
-                            <h3>Información del Laboratorio</h3>
+                            <h3>Informacion del Laboratorio</h3>
                             <p><strong>Nombre del Laboratorio:</strong> <span t-field="ats.laboratorios_id.nombre" /></p>
-                            <p><strong>Dirección del Laboratorio:</strong> <span t-field="ats.laboratorios_id.direccion" /></p>
+                            <p><strong>Direccion del Laboratorio:</strong> <span t-field="ats.laboratorios_id.direccion" /></p>
                         </div>
                     </div>
                 </t>
