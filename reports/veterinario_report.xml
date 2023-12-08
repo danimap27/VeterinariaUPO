@@ -1,0 +1,50 @@
+<odoo>
+    <template id="veterinariaupo_veterinario_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="veterinario">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure" />
+                        <h2>Veterinario Report</h2>
+                        <p><strong>ID Veterinario:</strong> <span t-field="veterinario.name" /></p>
+                        <p><strong>Nombre:</strong> <span t-field="veterinario.nombre" /></p>
+                        <p><strong>Apellidos:</strong> <span t-field="veterinario.apellidos" /></p>
+                        <p><strong>DNI:</strong> <span t-field="veterinario.dni" /></p>
+                        <p><strong>Direccion:</strong> <span t-field="veterinario.direccion" /></p>
+                        <p><strong>Telefono:</strong> <span t-field="veterinario.telefono" /></p>
+                        <p><strong>Correo:</strong> <span t-field="veterinario.correo" /></p>
+                        <p><strong>Especialidad:</strong> <span t-field="veterinario.especialidad" /></p>
+                        
+                        <div t-if="veterinario.clinicas_id">
+                            <h3>Informacion de la Clinica</h3>
+                            <p><strong>Nombre de la Clinica:</strong> <span t-field="veterinario.clinicas_id.name" /></p>
+                            <p><strong>Direccion de la Clinica:</strong> <span t-field="veterinario.clinicas_id.direccion" /></p>
+                        </div>
+                        
+                        <div t-if="veterinario.cita_ids">
+                            <h3>Citas del Veterinario</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Mascota</th>
+                                        <th>Razon</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="veterinario.cita_ids" t-as="cita">
+                                        <tr>
+                                            <td><span t-field="cita.fecha" /></td>
+                                            <td><span t-field="cita.mascota_id.name" /></td>
+                                            <td><span t-field="cita.razon" /></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

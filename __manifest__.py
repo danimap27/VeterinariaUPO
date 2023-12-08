@@ -27,6 +27,7 @@
         'security/ir.model.access.csv',
         'reports/reports.xml',
         'reports/cliente_report.xml',
+        'reports/veterinario_report.xml', 
         'reports/ats_report.xml',
         'reports/mascota_report.xml', 
         'reports/laboratorio_report.xml',      
