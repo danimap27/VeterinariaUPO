@@ -4,18 +4,23 @@
         <field name="model">veterinariaupo.tratamiento</field>
         <field name="arch" type="xml">
             <form string="tratamiento">
+                <header>
+                    <button name="btn_submit_to_disponible" string="Disponible" type="object" class="oe_highlight" />
+                    <button name="btn_submit_to_cancelado" string="Cancelar" type="object" class="oe_highlight" />
+                </header>
                 <sheet>
                     <group>
                         <field name="id_tratamiento" string="id Del tratamiento" />
                         <field name="descripcion" string="Descripcion: "/>
+                        <field name="estado" widget="statusbar"/>
                         <field name="fin_tratamiento" string="Fin del tratamiento" />
                         <field name="inicio_tratamiento" string="Inicio del tratamiento" />
                     </group>
-                     <notebook>
-                        <page string="Medicinas" >
-                            <field name="medicinas_ids" widget="one2many_list" options="{'readonly': False}" />
+                    <notebook>
+                        <page string="Medicinas">
+                            <field name="medicinas_ids" widget="one2many" />
                         </page>
-                        <page name="Cita" >
+                        <page name="Cita">
                             <field name="cita_id" widget="many2one_list" />
                         </page>
                     </notebook>
@@ -31,6 +36,7 @@
             <tree string="Tratamientos">
                 <field name="id"/>
                 <field name="descripcion"/>
+                <field name="estado"/>
                 <field name="fin_tratamiento"/>
                 <field name="inicio_tratamiento"/>
             </tree>

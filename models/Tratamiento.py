@@ -10,13 +10,26 @@ class Tratamiento(models.Model):
     descripcion = fields.Text('Descripcion tratamiento', help="descripcion de tratamiento")
     fin_tratamiento = fields.Date('Fin de tratamiento',required=True, autodate = True )
     inicio_tratamiento = fields.Date('Inicio de tratamiento',required=True, autodate = True )
-
-    cita_id = fields.Many2one('veterinariaupo.cita', string='Cita', required=True)
+    estado = fields.Selection([('disponible','Disponible'),
+                                ('cancelado','Cancelado'),],
+                                 'Estado', default='disponible')
+    
+    cita_id = fields.Many2one('veterinariaupo.cita', string='Cita')
     medicinas_ids = fields.One2many('veterinariaupo.medicina', 'tratamiento_id', string='Medicinas')
     
     _sql_constraints = [('id_tratamiento_sqlConstr','UNIQUE (id_tratamiento)','Cada tratamiento tiene un id distinto (primary key')]
-    #validaciones
+
+    #funcionalidades    
+    def btn_submit_to_disponible(self):
+        self.write({'estado':'disponible'})
     
+    #Si el tratamiento es cancelado se elimina la cita relacionado a el
+    def btn_submit_to_cancelado(self):
+        self.write({'estado':'cancelado'})
+        
+        self.write({'cita_id':[(3,self.cita_id)]})
+        
+    #validaciones
     @api.onchange('inicio_tratamiento','fin_tratamiento')
     def checkFechas(self):
         resultado = {}
@@ -39,4 +52,15 @@ class Tratamiento(models.Model):
             }
         return resultado
         
+    @api.onchange('cita_id')
+    def validaTratamientoCancel(self):
+        resultado = {}
+        if self.estado == 'cancelado':
+            resultado = {
+                'warning':{
+                    'title':'Estado no compatible con cita',
+                    'message':'No se puede establecer relacionar una cita si el estado es cancelado'
+            }
+        }
+        return resultado
    
