@@ -1,0 +1,76 @@
+<!-- veterinaria_upo/report/seguro_report.xml -->
+<odoo>
+    <data>
+        <!-- Report Definition -->
+        <report
+            id="report_seguro"
+            model="veterinariaupo.seguro"
+            string="Informe de Seguros"
+            report_type="qweb-pdf"
+            name="veterinaria_upo.seguro_report_template"
+            file="veterinaria_upo.seguro_report_template"
+        />
+
+        <!-- Report Template -->
+        <template id="seguro_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="seguro">
+                    <div class="page">
+                        <style>
+                            body {
+                                font-family: 'Arial', sans-serif;
+                                background-color: #f4f4f4;
+                                color: #333;
+                            }
+
+                            h2 {
+                                color: #007bff;
+                            }
+
+                            table {
+                                width: 100%;
+                                border-collapse: collapse;
+                                margin-top: 20px;
+                            }
+
+                            table, th, td {
+                                border: 1px solid #ddd;
+                            }
+
+                            th, td {
+                                padding: 10px;
+                                text-align: left;
+                            }
+
+                            th {
+                                background-color: #007bff;
+                                color: #fff;
+                            }
+                        </style>
+
+                        <h2>Informe de Seguro</h2>
+                        <table>
+                            <tr>
+                                <th>Numero de Poliza:</th>
+                                <td><span t-field="seguro.numeroPoliza"/></td>
+                            </tr>
+                            <tr>
+                                <th>Precio:</th>
+                                <td><span t-field="seguro.precio"/></td>
+                            </tr>
+                            <tr>
+                                <th>Tipo de Seguro:</th>
+                                <td><span t-field="seguro.tipo"/></td>
+                            </tr>
+                            <tr>
+                                <th>Condiciones del Seguro:</th>
+                                <td><span t-field="seguro.condiciones"/></td>
+                            </tr>
+                            <!-- Puedes agregar más campos según sea necesario -->
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
