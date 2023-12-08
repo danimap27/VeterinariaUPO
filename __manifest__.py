@@ -28,6 +28,7 @@
         'reports/reports.xml',
         'reports/cliente_report.xml',
         'reports/ats_report.xml',
+        'reports/mascota_report.xml', 
         'reports/laboratorio_report.xml',      
         'views/ats_view.xml',
         'views/cliente_view.xml',
