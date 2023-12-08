@@ -1,22 +1,69 @@
+<!-- veterinaria_upo/report/ats_report.xml -->
 <odoo>
-    <template id="veterinariaupo_ats_template">
-        <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="ats">
-                <t t-call="web.external_layout">
+    <data>
+        <report
+            id="report_ats"
+            model="veterinariaupo.ats"
+            string="ATS Report"
+            report_type="qweb-pdf"
+            name="veterinaria_upo.ats_report_template"
+            file="veterinaria_upo.ats_report_template"
+        />
+
+        <template id="ats_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="ats">
                     <div class="page">
-                        <div class="oe_structure" />
+                        <style>
+                            body {
+                                font-family: 'Arial', sans-serif;
+                                background-color: #f4f4f4;
+                                color: #333;
+                            }
+
+                            h2 {
+                                color: #007bff;
+                            }
+
+                            table {
+                                width: 100%;
+                                border-collapse: collapse;
+                                margin-top: 20px;
+                            }
+
+                            table, th, td {
+                                border: 1px solid #ddd;
+                            }
+
+                            th, td {
+                                padding: 10px;
+                                text-align: left;
+                            }
+
+                            th {
+                                background-color: #007bff;
+                                color: #fff;
+                            }
+                        </style>
+
                         <h2>ATS Report</h2>
-                        <p><strong>ID ATS:</strong> <span t-field="ats.idATS" /></p>
-                        <p><strong>Nombre:</strong> <span t-field="ats.nombre" /></p>
-                        <p><strong>Apellidos:</strong> <span t-field="ats.apellidos" /></p>
-                        <p><strong>DNI:</strong> <span t-field="ats.dni" /></p>
-                        <p><strong>Dirección:</strong> <span t-field="ats.direccion" /></p>
-                        <p><strong>Telefono:</strong> <span t-field="ats.telefono" /></p>
-                        <p><strong>Correo:</strong> <span t-field="ats.correo" /></p>
-                        <p><strong>Especialidad:</strong> <span t-field="ats.especialidad" /></p>
+                        <table>
+                            <tr>
+                                <th>ID ATS:</th>
+                                <td><span t-field="ats.idATS"/></td>
+                            </tr>
+                            <tr>
+                                <th>Nombre:</th>
+                                <td><span t-field="ats.nombre"/></td>
+                            </tr>
+                            <tr>
+                                <th>Apellidos:</th>
+                                <td><span t-field="ats.apellidos"/></td>
+                            </tr>
+                        </table>
                         
                         <div t-if="ats.prueba_medicas">
-                            <h3>Pruebas Medicas</h3>
+                            <h3>Pruebas Médicas</h3>
                             <table>
                                 <thead>
                                     <tr>
@@ -27,21 +74,23 @@
                                 <tbody>
                                     <t t-foreach="ats.prueba_medicas" t-as="prueba">
                                         <tr>
-                                            <td><span t-field="prueba.id_pruebamedica" /></td>
-                                            <td><span t-field="prueba.descripcion" /></td>
+                                            <td><span t-field="prueba.id_pruebamedica"/></td>
+                                            <td><span t-field="prueba.descripcion"/></td>
                                         </tr>
                                     </t>
                                 </tbody>
                             </table>
                         </div>
+                        
                         <div t-if="ats.laboratorios_id">
-                            <h3>Informacion del Laboratorio</h3>
-                            <p><strong>Nombre del Laboratorio:</strong> <span t-field="ats.laboratorios_id.nombre" /></p>
-                            <p><strong>Direccion del Laboratorio:</strong> <span t-field="ats.laboratorios_id.direccion" /></p>
+                            <h3>Información del Laboratorio</h3>
+                            <p><strong>Nombre del Laboratorio:</strong> <span t-field="ats.laboratorios_id.nombre"/></p>
+                            <p><strong>Dirección del Laboratorio:</strong> <span t-field="ats.laboratorios_id.direccion"/></p>
                         </div>
                     </div>
                 </t>
             </t>
-        </t>
-    </template>
+        </template>
+    </data>
 </odoo>
+

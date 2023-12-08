@@ -18,7 +18,16 @@
         <field name="binding_model_id" ref="model_veterinariaupo_ats"/>
         <field name="binding_type">report</field>
     </record>
-    
+
+    <record id="report_veterinariaupo_mascota_report" model="ir.actions.report">
+        <field name="name">Mascota report</field>
+        <field name="model">veterinariaupo.mascota</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinariaupo.veterinariaupo_mascota_template</field>
+        <field name="binding_model_id" ref="model_veterinariaupo_mascota"/>
+        <field name="binding_type">report</field>
+    </record>
+
     <record id="report_veterinariaupo_cliente_report" model="ir.actions.report">
         <field name="name">Cliente Report</field>
         <field name="model">veterinariaupo.cliente</field>
@@ -27,5 +36,15 @@
         <field name="binding_model_id" ref="model_veterinariaupo_cliente"/>
         <field name="binding_type">report</field>
     </record>
+    
+    <record id="report_veterinariaupo_veterinario_report" model="ir.actions.report">
+    <field name="name">Veterinario Report</field>
+    <field name="model">veterinariaupo.veterinario</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">veterinariaupo.veterinariaupo_veterinario_template</field>
+    <field name="binding_model_id" ref="model_veterinariaupo_veterinario"/>
+    <field name="binding_type">report</field>
+</record>
+
 </odoo>
     
