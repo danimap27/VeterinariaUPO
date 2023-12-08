@@ -1,5 +1,4 @@
 <odoo>
-
     <record id="report_veterinariaupo_laboratorio_report" model="ir.actions.report">
         <field name="name">Laboratorio Report</field>
         <field name="model">veterinariaupo.laboratorio</field>
@@ -8,16 +7,49 @@
         <field name="binding_model_id" ref="model_veterinariaupo_laboratorio"/>
         <field name="binding_type">report</field>
     </record>
-
+    
     <template id="veterinariaupo_laboratorio_template">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
                 <div class="page">
-                    <t t-esc="doc.correo" />
+                    <!--Aquí va el contenido de la pagina que se muestra al hacer el imprimir-->
+                    <h1 id="Titulo1" style="font-size: 15px; background-color: #333; padding: 20px; text-align: center;">Informe de laboratorio</h1>
+                    <table>
+                        <tr>
+                            <thead class="headerTabla" style="text-align: center; margin: auto; border: 10px; color: #D75539;">
+                                <tr>
+                                    <th>Nombre: </th>
+
+                                    <th>Dirección: </th>
+
+                                    <th>Correo: </th>
+
+                                    <th>Telefono: </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <td style="padding-left: 10px; text-align: center; color: #4AAEB8;">
+                                    <tr>
+                                        <td>
+                                            <p t-field="doc.nombre" />
+                                        </td>
+                                        <td>
+                                            <p t-field="doc.direccion" />
+                                        </td>
+                                        <td>
+                                            <p t-field="doc.correo" />
+                                        </td>
+                                        <td>
+                                            <p t-field="doc.telefono" />
+                                        </td>
+                                    </tr>
+                                </td>
+                            </tbody>
+                        </tr>
+                    </table>
                 </div>
             </t>
         </t>
     </template>
 
 </odoo>
-
