@@ -40,7 +40,7 @@
                 <field name="raza" string="Raza"/>
                 <field name="fechaNacimiento" string="fechaNacimiento"/>
                 <field name="peso" string="Peso"/>
-                <field name="carnets_id" string="ID Cliente" widget="many2one"/>
+                <field name="carnets_id" string="ID Cliente" widget="many2many"/>
                 <field name="microChip" string="Microchip"/>
                 <!--<filter string="Perros" name="filter_dog" domain="[('especie', '=', 'dog')]"/>
                 <filter string="Gatos" name="filter_cat" domain="[('especie', '=', 'cat')]"/>
