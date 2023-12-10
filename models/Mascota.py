@@ -33,6 +33,7 @@ class Mascota(models.Model):
  
     @api.onchange('fechaNacimiento')
     def _onchange_fechaNacimiento(self):
+            resultado = {}
             if self.fechaNacimiento and self.fechaNacimiento > fields.Date.today():
                 resultado = {
                 'warning': {
