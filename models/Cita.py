@@ -14,7 +14,7 @@ class Cita(models.Model):
     tratamientos_ids = fields.One2many('veterinariaupo.tratamiento', 'cita_id', string='Tratamientos')
     pruebas_medicas_ids = fields.One2many('veterinariaupo.pruebamedica', 'cita_id', string='Pruebas Médicas')
 
-    @api.constrains('fecha', 'duracion')
+    @api.constrains('fecha', 'duracion', 'tratamientos_ids')
     def check_fecha_duracion(self):
         # Asegurarse de que la duración sea un valor positivo
         if self.duracion <= 0:
@@ -24,15 +24,19 @@ class Cita(models.Model):
         if self.fecha < fields.Datetime.now():
             raise models.ValidationError('La fecha de la cita no puede estar en el pasado.')
 
-    @api.constrains('tratamientos_ids')
-    def check_tratamientos(self):
         # Asegurarse de que hay al menos un tratamiento asociado a la cita
         if not self.tratamientos_ids:
             raise models.ValidationError('Debe haber al menos un tratamiento asociado a la cita.')
 
+        # Calcular la duración total de los tratamientos en minutos
+        duracion_total_tratamientos = sum(
+            (tratamiento.fin_tratamiento - tratamiento.inicio_tratamiento).days * 24 * 60
+            for tratamiento in self.tratamientos_ids
+        )
+
         # Asegurarse de que la duración total de los tratamientos no exceda la duración de la cita
-        duracion_total_tratamientos = sum(tratamiento.duracion for tratamiento in self.tratamientos_ids)
         if duracion_total_tratamientos > self.duracion:
             raise models.ValidationError('La duración total de los tratamientos no puede exceder la duración de la cita.')
+
 
 
