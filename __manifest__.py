@@ -53,9 +53,9 @@
     ],
     # only loaded in demonstration mode
     'demo': [        
-        'demo/vetarinariaupo.ats.csv',
-        'demo/vetarinariaupo.cliente.csv',
-        'demo/vetarinariaupo.veterinario.csv',
+        'demo/veterinariaupo.ats.csv',
+        'demo/veterinariaupo.cliente.csv',
+        'demo/veterinariaupo.veterinario.csv',
         'demo/veterinariaupo.mascota.csv',
         'demo/veterinariaupo.seguro.csv',
         'demo/veterinariaupo.cita.csv',
@@ -68,3 +68,4 @@
         '128': 'src/logo.png'
     }
 }
+
