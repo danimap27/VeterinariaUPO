@@ -1,0 +1,86 @@
+<!-- veterinaria_upo/report/pruebamedica_report.xml -->
+<odoo>
+    <data>
+        <report
+            id="report_pruebamedica"
+            model="veterinariaupo.pruebamedica"
+            string="Prueba Médica Report"
+            report_type="qweb-pdf"
+            name="veterinaria_upo.pruebamedica_report_template"
+            file="veterinaria_upo.pruebamedica_report_template"
+        />
+
+        <template id="pruebamedica_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="pruebamedica">
+                    <div class="page">
+                        <style>
+                            body {
+                                font-family: 'Arial', sans-serif;
+                                background-color: #f4f4f4;
+                                color: #333;
+                            }
+
+                            h2 {
+                                color: #007bff;
+                            }
+
+                            table {
+                                width: 100%;
+                                border-collapse: collapse;
+                                margin-top: 20px;
+                            }
+
+                            table, th, td {
+                                border: 1px solid #ddd;
+                            }
+
+                            th, td {
+                                padding: 10px;
+                                text-align: left;
+                            }
+
+                            th {
+                                background-color: #007bff;
+                                color: #fff;
+                            }
+                        </style>
+
+                        <h2>Prueba Médica Report</h2>
+                        <table>
+                            <tr>
+                                <th>Número de Prueba Médica:</th>
+                                <td><span t-field="pruebamedica.id_pruebamedica"/></td>
+                            </tr>
+                            <tr>
+                                <th>Tipo de Prueba Médica:</th>
+                                <td><span t-field="pruebamedica.tipo"/></td>
+                            </tr>
+                            <tr>
+                                <th>Fecha:</th>
+                                <td><span t-field="pruebamedica.fecha"/></td>
+                            </tr>
+                            <tr>
+                                <th>Descripción:</th>
+                                <td><span t-field="pruebamedica.descripcion"/></td>
+                            </tr>
+                        </table>
+                        
+                        <div t-if="pruebamedica.ats_id">
+                            <h3>Información de ATS Asociado</h3>
+                            <p><strong>ID ATS:</strong> <span t-field="pruebamedica.ats_id.idATS"/></p>
+                            <p><strong>Nombre:</strong> <span t-field="pruebamedica.ats_id.nombre"/></p>
+                        </div>
+                        
+                        <div t-if="pruebamedica.cita_id">
+                            <h3>Información de Cita Asociada</h3>
+                            <p><strong>ID Cita:</strong> <span t-field="pruebamedica.cita_id.id_cita"/></p>
+                            <p><strong>Fecha de la Cita:</strong> <span t-field="pruebamedica.cita_id.fecha"/></p>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
+

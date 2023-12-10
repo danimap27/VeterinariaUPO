@@ -1,0 +1,127 @@
+<!-- veterinaria_upo/report/cita_report.xml -->
+<odoo>
+    <data>
+        <report
+            id="report_cita"
+            model="veterinariaupo.cita"
+            string="Cita Report"
+            report_type="qweb-pdf"
+            name="veterinaria_upo.cita_report_template"
+            file="veterinaria_upo.cita_report_template"
+        />
+
+        <template id="cita_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="cita">
+                    <div class="page">
+                        <style>
+                            body {
+                                font-family: 'Arial', sans-serif;
+                                background-color: #f4f4f4;
+                                color: #333;
+                            }
+
+                            h2 {
+                                color: #007bff;
+                            }
+
+                            table {
+                                width: 100%;
+                                border-collapse: collapse;
+                                margin-top: 20px;
+                            }
+
+                            table, th, td {
+                                border: 1px solid #ddd;
+                            }
+
+                            th, td {
+                                padding: 10px;
+                                text-align: left;
+                            }
+
+                            th {
+                                background-color: #007bff;
+                                color: #fff;
+                            }
+                        </style>
+
+                        <h2>Cita Report</h2>
+                        <table>
+                            <tr>
+                                <th>ID Cita:</th>
+                                <td><span t-field="cita.id_cita"/></td>
+                            </tr>
+                            <tr>
+                                <th>Fecha:</th>
+                                <td><span t-field="cita.fecha"/></td>
+                            </tr>
+                            <tr>
+                                <th>Duración (minutos):</th>
+                                <td><span t-field="cita.duracion"/></td>
+                            </tr>
+                            <tr>
+                                <th>Descripción:</th>
+                                <td><span t-field="cita.descripcion"/></td>
+                            </tr>
+                        </table>
+                        
+                        <div t-if="cita.microChip">
+                            <h3>Información de la Mascota</h3>
+                            <p><strong>Nombre de la Mascota:</strong> <span t-field="cita.microChip.nombre"/></p>
+                            <p><strong>Dueño de la Mascota:</strong> <span t-field="cita.microChip.dueno_id.nombre"/></p>
+                        </div>
+                        
+                        <div t-if="cita.veterinario_id">
+                            <h3>Información del Veterinario</h3>
+                            <p><strong>Nombre del Veterinario:</strong> <span t-field="cita.veterinario_id.nombre"/></p>
+                            <p><strong>Especialidad:</strong> <span t-field="cita.veterinario_id.especialidad"/></p>
+                        </div>
+                        
+                        <div t-if="cita.tratamientos_ids">
+                            <h3>Tratamientos</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre del Tratamiento</th>
+                                        <th>Inicio del Tratamiento</th>
+                                        <th>Fin del Tratamiento</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="cita.tratamientos_ids" t-as="tratamiento">
+                                        <tr>
+                                            <td><span t-field="tratamiento.nombre" /></td>
+                                            <td><span t-field="tratamiento.inicio_tratamiento" /></td>
+                                            <td><span t-field="tratamiento.fin_tratamiento" /></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div t-if="cita.pruebas_medicas_ids">
+                            <h3>Pruebas Médicas</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nombre de la Prueba</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="cita.pruebas_medicas_ids" t-as="prueba">
+                                        <tr>
+                                            <td><span t-field="prueba.id_pruebamedica" /></td>
+                                            <td><span t-field="prueba.descripcion" /></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
