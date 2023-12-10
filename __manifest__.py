@@ -31,7 +31,10 @@
         'reports/ats_report.xml',
         'reports/mascota_report.xml', 
         'reports/seguro_report.xml', 
-        'reports/laboratorio_report.xml',      
+        'reports/laboratorio_report.xml',
+        'reports/cita_report.xml',
+        'reports/clinica_report.xml',
+        'reports/pruebamedica_report.xml',     
         'views/ats_view.xml',
         'views/cliente_view.xml',
         'views/laboratorio_view.xml',
@@ -55,9 +58,9 @@
         'demo/vetarinariaupo.veterinario.csv',
         'demo/veterinariaupo.mascota.csv',
         'demo/veterinariaupo.seguro.csv',
-        'demo/vetarinariaupo.cita.csv',
-        'demo/vetarinariaupo.clinica.csv',
-        'demo/vetarinariaupo.pruebamedica.csv',
+        'demo/veterinariaupo.cita.csv',
+        'demo/veterinariaupo.clinica.csv',
+        'demo/veterinariaupo.pruebamedica.csv',
     ],    
     'auto_install': True,
     'application': True,
@@ -65,4 +68,3 @@
         '128': 'src/logo.png'
     }
 }
-
