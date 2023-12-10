@@ -4,8 +4,19 @@ class PruebaMedica(models.Model):
     _name = 'veterinariaupo.pruebamedica'
     _description = 'Modelo PruebaMedica'
 
+    tipos = [
+        ('laboratorio', 'Pruebas de Laboratorio'),
+        ('diagnostico_imagen', 'Diagnóstico por Imagen'),
+        ('inmunologia', 'Pruebas de Inmunología'),
+        ('geneticas', 'Pruebas Genéticas'),
+        ('funcion_cardiaca', 'Pruebas de Función Cardíaca'),
+        ('funcion_pulmonar', 'Pruebas de Función Pulmonar'),
+        ('endoscopicas', 'Pruebas Endoscópicas'),
+        ('molecular', 'Pruebas de Diagnóstico Molecular'),
+    ]
+
     id_pruebamedica = fields.Integer('Número de Prueba Médica', required=True, help="Identificador de prueba medica")  # Primary key
-    tipo = fields.Char(string='Tipo de Prueba Médica', size=256, required=True)
+    tipo = fields.Selection(tipos, string='Tipo de Prueba Médica', required=True)
     fecha = fields.Datetime('Fecha', required=True, autodate=True)
     descripcion = fields.Text('Descripción')
 
@@ -29,3 +40,4 @@ class PruebaMedica(models.Model):
         # Validar que la descripción no sea demasiado corta
         if len(self.descripcion) < 5:
             raise models.ValidationError('La descripción de la prueba médica debe tener al menos 5 caracteres.')
+
