@@ -46,5 +46,31 @@
     <field name="binding_type">report</field>
 </record>
 
-</odoo>
+    <record id="report_veterinariaupo_cita_report" model="ir.actions.report">
+        <field name="name">Cita Report</field>
+        <field name="model">veterinariaupo.cita</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinariaupo.veterinariaupo_cita_template</field>
+        <field name="binding_model_id" ref="model_veterinariaupo_cita"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_veterinariaupo_pruebamedica_report" model="ir.actions.report">
+        <field name="name">Prueba Médica Report</field>
+        <field name="model">veterinariaupo.pruebamedica</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinariaupo.veterinariaupo_pruebamedica_template</field>
+        <field name="binding_model_id" ref="model_veterinariaupo_pruebamedica"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_veterinariaupo_clinica_report" model="ir.actions.report">
+        <field name="name">Clínica Report</field>
+        <field name="model">veterinariaupo.clinica</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinariaupo.veterinariaupo_clinica_template</field>
+        <field name="binding_model_id" ref="model_veterinariaupo_clinica"/>
+        <field name="binding_type">report</field>
+    </record>
     
+</odoo>
