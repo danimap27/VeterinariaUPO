@@ -32,8 +32,11 @@ class Medicina(models.Model):
     def btn_submit_to_experimental(self):
       self.write({'estado':'experimental'})
   
+    #al pasar al estado de descatalogada no se permite relacionar con una cita
     def btn_submit_to_descatalogar(self):
       self.write({'estado':'descatalogada'})
+      self.write({'tratamiento_id':[(3,self.tratamiento_id)]})
+
   
     def btn_submit_to_oficializar(self):
       self.write({'estado':'probada'})
@@ -70,7 +73,18 @@ class Medicina(models.Model):
           }
         }
         return resultado
-
+    
+    @api.onchange('tratamiento_id')
+    def validaTratamiento(self):
+      if self.estado == 'descatalogada':
+        return {
+          'value': {self.tratamiento_id:False,},
+          'warning': {
+            'title': 'Error en la cita',
+            'message': 'No se puede establecer una cita si la medicina está descatalogada',
+          }
+        }
+    
   
       
 
