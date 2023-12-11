@@ -55,6 +55,10 @@
     'demo': [        
         'demo/veterinariaupo.mascota.csv',
         'demo/veterinariaupo.seguro.csv',
+        'demo/veterinariaupo.medicina.csv',
+        'demo/veterinariaupo.tratamiento.csv',
+        'demo/veterinariaupo.tipomedicina.csv'
+        
     ],    
     'auto_install': True,
     'application': True,

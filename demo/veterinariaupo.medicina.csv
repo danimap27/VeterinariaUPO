@@ -1,2 +1,2 @@
-codigoNacional,nombre,precio,caducidad,descripcion,prospecto,estado
-12345.6,Paracetamol,12.32,16/10/2024,Medicamento para propósitos generales,Tomar dosis de 10 mg por las mañanas,probada
+codigo_nacional,nombre,precio,caducidad,descripcion,prospecto,estado
+12345.6,Paracetamol,12.32,2024-10-16,Medicamento para propósitos generales,Tomar dosis de 10 mg por las mañanas,probada
