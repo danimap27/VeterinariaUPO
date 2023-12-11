@@ -10,17 +10,23 @@ class Clinica(models.Model):
 
     veterinarios_ids = fields.One2many('veterinariaupo.veterinario', 'clinicas_id', string='Veterinarios')
 
-    @api.constrains('telefono')
-    def check_telefono(self):
-        # Validar que el número de teléfono tenga al menos 7 dígitos
-        if len(str(self.telefono)) < 7:
-            raise models.ValidationError('El número de teléfono debe tener al menos 7 dígitos.')
+    @api.onchange('telefono')
+    def valida_telefono(self):
+        result = {}
+        if self.telefono != False and not self.compruebaTelefono(self.telefono):
+            result = {
+                'value': {'telefono': '666666666'},
+                'warning': {
+                    'title': 'Error en el telefono',
+                    'message': 'El telefono tiene que ser una cadena de 9 dígitos numéricos',
+                }
+            }
+        return result
 
-    @api.constrains('nombre')
-    def check_nombre(self):
-        # Validar que el nombre de la clínica no contenga caracteres especiales
-        if any(char.isalnum() or char.isspace() for char in self.nombre):
-            raise models.ValidationError('El nombre de la clínica no puede contener caracteres especiales.')
+    def compruebaTelefono(self, telefono):
+        if telefono is None or not isinstance(telefono, str) or not re.match(r'^\d{9}$', telefono):
+            return False
+        return True
 
     @api.constrains('direccion')
     def check_direccion(self):
