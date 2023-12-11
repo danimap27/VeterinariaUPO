@@ -7,7 +7,7 @@ class Cliente(models.Model):
     _inherit = 'veterinariaupo.persona'
 
     carnet_id = fields.Integer(int= 'carnet_id', size = 9, required = True, help="Identificador cliente")
-    photo = fields.Binary('photo_Cliente')
+    photo = fields.Binary('photo_Cliente', required = False)
     
     mascotas_ids = fields.Many2many('veterinariaupo.mascota', string='Mascota')
     
