@@ -1,4 +1,0 @@
-"DNI","Nombre","Apellidos","Direccion","Telefono","Correo","carnet_id","direccion","photo_Cliente"
-"111222333","Luis","Martinez","Calle A","555666777","luis.martinez@example.com",12345,"Casa 1","<base64_encoded_image>"
-"444555666","Laura","Gonzalez","Avenida B","888999000","laura.gonzalez@example.com",67890,"Apartamento 2","<base64_encoded_image>"
-"777888999","Carlos","Rodriguez","Calle C","111222333","carlos.rodriguez@example.com",34567,"Piso 3","<base64_encoded_image>"

@@ -1,4 +1,0 @@
-"DNI","Nombre","Apellidos","Direccion","Telefono","Correo","ID VETERINARIO","Especialidad","photo_Veterinario","Clinica"
-"111222333","Juan","Perez","Calle A","555666777","juan.perez@example.com","VET001","cirugia","<base64_encoded_image>","Clinica A"
-"444555666","Maria","Lopez","Avenida B","888999000","maria.lopez@example.com","VET002","dermatologia","<base64_encoded_image>","Clinica B"
-"777888999","Carlos","Rodriguez","Calle C","111222333","carlos.rodriguez@example.com","VET003","oftalmologia","<base64_encoded_image>","Clinica C"

@@ -1,4 +1,0 @@
-"Id Cita","Fecha","Duracion (minutos)","Descripcion","Mascota","Veterinario","Tratamientos","Pruebas Médicas"
-"1","2023-12-10 10:00:00","60","Consulta general","12345","VeterinarioA","TratamientoA,TratamientoB","PruebaMedicaA,PruebaMedicaB"
-"2","2023-12-15 15:30:00","45","Vacunación","67890","VeterinarioB","TratamientoC","PruebaMedicaC"
-"3","2023-12-20 09:00:00","30","Revisión dental","54321","VeterinarioA","TratamientoD","PruebaMedicaD,PruebaMedicaE"

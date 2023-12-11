@@ -6,8 +6,8 @@
             model="veterinariaupo.seguro"
             string="Informe de Seguros"
             report_type="qweb-pdf"
-            name="veterinaria_upo.seguro_report_template"
-            file="veterinaria_upo.seguro_report_template"
+            name="veterinariaupo.seguro_report_template"
+            file="veterinariaupo.seguro_report_template"
         />
 
         <template id="seguro_report_template">

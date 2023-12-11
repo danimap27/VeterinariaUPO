@@ -53,14 +53,8 @@
     ],
     # only loaded in demonstration mode
     'demo': [        
-        'demo/veterinariaupo.ats.csv',
-        'demo/veterinariaupo.cliente.csv',
-        'demo/veterinariaupo.veterinario.csv',
         'demo/veterinariaupo.mascota.csv',
         'demo/veterinariaupo.seguro.csv',
-        'demo/veterinariaupo.cita.csv',
-        'demo/veterinariaupo.clinica.csv',
-        'demo/veterinariaupo.pruebamedica.csv',
     ],    
     'auto_install': True,
     'application': True,
