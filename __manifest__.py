@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "VeterinariaUPO",
+    'name': "veterinariaupo",
 
     'summary': """
         Gestionar una clinica Veterinaria""",
