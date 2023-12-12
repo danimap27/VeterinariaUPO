@@ -72,5 +72,12 @@
         <field name="binding_model_id" ref="model_veterinariaupo_clinica"/>
         <field name="binding_type">report</field>
     </record>
-    
+    <record id = "report_veterinariaupo_tipomedicina_report" model="ir.actions.report">
+           <field name="name">Tipo Medicina Report</field>
+        <field name="model">veterinariaupo.tipomedicina</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinariaupo.veterinariaupo_tipomedicina_template</field>
+        <field name="binding_model_id" ref="model_veterinariaupo_tipomedicina"/>
+        <field name="binding_type">report</field>
+    </record>
 </odoo>
