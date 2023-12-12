@@ -1,0 +1,72 @@
+<odoo>
+    <data>
+        <template id="veterinariaupo_tratamiento_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="tratamiento">
+                    <div class="page">
+                        <style>
+                            body {
+                                font-family: 'Arial', sans-serif;
+                                background-color: #f4f4f4;
+                                color: #333;
+                            }
+
+                            h2 {
+                                color: #007bff;
+                            }
+
+                            table {
+                                width: 100%;
+                                border-collapse: collapse;
+                                margin-top: 20px;
+                            }
+
+                            table, th, td {
+                                border: 1px solid #ddd;
+                            }
+
+                            th, td {
+                                padding: 10px;
+                                text-align: left;
+                            }
+
+                            th {
+                                background-color: #007bff;
+                                color: #fff;
+                            }
+                        </style>
+
+                        <h2>Informe de Tratamiento</h2>
+                        <table>
+                            <tr>
+                                <th>Id del tratamiento:</th>
+                                <td><span t-field="tratamiento.id_tratamiento"/></td>
+                            </tr>
+
+                             <tr>
+                                <th>Descricpcion del tratamiento:</th>
+                                <td><span t-field="tratamiento.descripcion"/></td>
+                            </tr>
+
+                             <tr>
+                                <th>Estado del tratamiento:</th>
+                                <td><span t-field="tratamiento.estado"/></td>
+                            </tr>
+
+                             <tr>
+                                <th>Fin del tratamiento:</th>
+                                <td><span t-field="tratamiento.fin_tratamiento"/></td>
+                            </tr>
+
+                             <tr>
+                                <th>Inicio del tratamiento:</th>
+                                <td><span t-field="tratamiento.inicio_tratamiento"/></td>
+                            </tr>
+                           
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

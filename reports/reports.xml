@@ -88,4 +88,13 @@
         <field name="binding_model_id" ref="model_veterinariaupo_medicina"/>
         <field name="binding_type">report</field>
     </record>
+
+     <record id = "report_veterinariaupo_tratamiento_report" model="ir.actions.report">
+           <field name="name"> Tratamiento Report</field>
+        <field name="model">veterinariaupo.tratamiento</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinariaupo.veterinariaupo_tratamiento_template</field>
+        <field name="binding_model_id" ref="model_veterinariaupo_tratamiento"/>
+        <field name="binding_type">report</field>
+    </record>
 </odoo>
