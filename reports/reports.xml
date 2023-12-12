@@ -80,4 +80,12 @@
         <field name="binding_model_id" ref="model_veterinariaupo_tipomedicina"/>
         <field name="binding_type">report</field>
     </record>
+    <record id = "report_veterinariaupo_medicina_report" model="ir.actions.report">
+           <field name="name"> Medicina Report</field>
+        <field name="model">veterinariaupo.medicina</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">veterinariaupo.veterinariaupo_medicina_template</field>
+        <field name="binding_model_id" ref="model_veterinariaupo_medicina"/>
+        <field name="binding_type">report</field>
+    </record>
 </odoo>

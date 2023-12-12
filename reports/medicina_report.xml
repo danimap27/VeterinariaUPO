@@ -1,0 +1,83 @@
+<odoo>
+    <data>
+        <template id="veterinariaupo_medicina_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="medicina">
+                    <div class="page">
+                        <style>
+                            body {
+                                font-family: 'Arial', sans-serif;
+                                background-color: #f4f4f4;
+                                color: #333;
+                            }
+
+                            h2 {
+                                color: #007bff;
+                            }
+
+                            table {
+                                width: 100%;
+                                border-collapse: collapse;
+                                margin-top: 20px;
+                            }
+
+                            table, th, td {
+                                border: 1px solid #ddd;
+                            }
+
+                            th, td {
+                                padding: 10px;
+                                text-align: left;
+                            }
+
+                            th {
+                                background-color: #007bff;
+                                color: #fff;
+                            }
+                        </style>
+
+                        <h2>Informe de Medicina</h2>
+                        <table>
+                            <tr>
+                                <th>id de la medicina:</th>
+                                <td><span t-field="medicina.codigo_nacional"/></td>
+                            </tr>
+                           <tr>
+                                <th>Nombre de la medicina:</th>
+                                <td><span t-field="medicina.nombre"/></td>
+                            </tr>
+                            <tr>
+                                <th>Estado de la medicina:</th>
+                                <td><span t-field="medicina.estado"/></td>
+                            </tr>
+                            <tr>
+                                <th>Precio de la medicina:</th>
+                                <td><span t-field="medicina.precio"/></td>
+                            </tr>
+
+                            <tr>
+                                <th>Caducidad  de la medicina:</th>
+                                <td><span t-field="medicina.caducidad"/></td>
+                            </tr>
+
+                            <tr>
+                                <th>Descricpcion  de la medicina:</th>
+                                <td><span t-field="medicina.descripcion"/></td>
+                            </tr>
+
+                            <tr>
+                                <th>Prospecto  de la medicina:</th>
+                                <td><span t-field="medicina.prospecto"/></td>
+                            </tr>
+
+                            <tr>
+                                <th>Numero de Tipos de medicina:</th>
+                                <td><span t-field="medicina.numTipos"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
