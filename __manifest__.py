@@ -55,7 +55,8 @@
         'views/menu.xml',
     ],
     # only loaded in demonstration mode
-    'demo': [        
+    'demo': [      
+        'demo/veterinariaupo.ats.csv',
         'demo/veterinariaupo.mascota.csv',
         'demo/veterinariaupo.seguro.csv',
         'demo/veterinariaupo.medicina.csv',
