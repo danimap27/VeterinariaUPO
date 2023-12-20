@@ -1,42 +1,153 @@
 <odoo>
-    <template id="veterinariaupo_veterinario_template">
-        <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="veterinario">
-                <t t-call="web.external_layout">
+    <data>
+        <template id="veterinariaupo_veterinario_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="veterinario">
                     <div class="page">
-                        <div class="oe_structure" />
+                        <style>
+                            body {
+                            font-family: 'Arial', sans-serif;
+                            background-color: #f4f4f4;
+                            color: #333;
+                            padding: 20px;
+                            }
+
+                            h2 {
+                            color: #007bff;
+                            text-align: center;
+                            margin-bottom: 20px;
+                            }
+
+                            h3 {
+                            color: #007bff;
+                            margin-top: 20px;
+                            }
+
+                            table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin-top: 20px;
+                            margin-bottom: 40px;
+                            }
+
+                            table, th, td {
+                            border: 1px solid #ddd;
+                            }
+
+                            th, td {
+                            padding: 15px;
+                            text-align: left;
+                            }
+
+                            th {
+                            background-color: #007bff;
+                            color: #fff;
+                            }
+
+                            .lab-info {
+                            margin-top: 20px;
+                            }
+
+                            .lab-info p {
+                            margin-bottom: 10px;
+                            }
+
+                            .lab-info strong {
+                            font-weight: bold;
+                            margin-right: 10px;
+                            }
+                        </style>
+
                         <h2>Veterinario Report</h2>
-                        <p><strong>ID Veterinario:</strong> <span t-field="veterinario.name" /></p>
-                        <p><strong>Nombre:</strong> <span t-field="veterinario.nombre" /></p>
-                        <p><strong>Apellidos:</strong> <span t-field="veterinario.apellidos" /></p>
-                        <p><strong>DNI:</strong> <span t-field="veterinario.dni" /></p>
-                        <p><strong>Direccion:</strong> <span t-field="veterinario.direccion" /></p>
-                        <p><strong>Telefono:</strong> <span t-field="veterinario.telefono" /></p>
-                        <p><strong>Correo:</strong> <span t-field="veterinario.correo" /></p>
-                        <p><strong>Especialidad:</strong> <span t-field="veterinario.especialidad" /></p>
-                        
-                        <div t-if="veterinario.clinicas_id">
-                            <h3>Informacion de la Clinica</h3>
-                            <p><strong>Nombre de la Clinica:</strong> <span t-field="veterinario.clinicas_id.name" /></p>
-                            <p><strong>Direccion de la Clinica:</strong> <span t-field="veterinario.clinicas_id.direccion" /></p>
-                        </div>
-                        
+                        <table>
+                            <tr>
+                                <th>ID Veterinario:</th>
+                                <td>
+                                    <span t-field="veterinario.name" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Nombre:</th>
+                                <td>
+                                    <span t-field="veterinario.nombre" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Apellidos:</th>
+                                <td>
+                                    <span t-field="veterinario.apellidos" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>DNI:</th>
+                                <td>
+                                    <span t-field="veterinario.dni" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Dirección:</th>
+                                <td>
+                                    <span t-field="veterinario.direccion" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Teléfono:</th>
+                                <td>
+                                    <span t-field="veterinario.telefono" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Correo:</th>
+                                <td>
+                                    <span t-field="veterinario.correo" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Especialidad:</th>
+                                <td>
+                                    <span t-field="veterinario.especialidad" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Foto del Veterinario:</th>
+                                <td>
+                                    <div t-if="veterinario.photo">
+                                        <img
+                                            t-att-src="'data:image/png;base64,%s' % veterinario.photo"
+                                            style="max-width: 100%;" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Clinica:</th>
+                                <td>
+                                    <span t-field="veterinario.clinicas_id.nombre" />
+                                </td>
+                            </tr>
+                        </table>
+
                         <div t-if="veterinario.cita_ids">
                             <h3>Citas del Veterinario</h3>
                             <table>
                                 <thead>
                                     <tr>
                                         <th>Fecha</th>
+                                        <th>Cliente</th>
                                         <th>Mascota</th>
-                                        <th>Razon</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <t t-foreach="veterinario.cita_ids" t-as="cita">
                                         <tr>
-                                            <td><span t-field="cita.fecha" /></td>
-                                            <td><span t-field="cita.mascota_id.name" /></td>
-                                            <td><span t-field="cita.razon" /></td>
+                                            <td>
+                                                <span t-field="cita.fecha" />
+                                            </td>
+                                            <td>
+                                                <span t-field="cita.cliente_id.nombre" />
+                                            </td>
+                                            <td>
+                                                <span t-field="cita.mascota_id.nombre" />
+                                            </td>
                                         </tr>
                                     </t>
                                 </tbody>
@@ -45,6 +156,7 @@
                     </div>
                 </t>
             </t>
-        </t>
-    </template>
+        </template>
+    </data>
 </odoo>
+        

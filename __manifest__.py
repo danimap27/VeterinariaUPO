@@ -57,6 +57,8 @@
     # only loaded in demonstration mode
     'demo': [      
         'demo/veterinariaupo.ats.csv',
+        'demo/veterinariaupo.veterinario.csv',
+        'demo/veterinariaupo.cliente.csv',
         'demo/veterinariaupo.mascota.csv',
         'demo/veterinariaupo.seguro.csv',
         'demo/veterinariaupo.medicina.csv',

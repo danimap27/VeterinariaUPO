@@ -1,43 +1,127 @@
 <odoo>
-    <template id="veterinariaupo_cliente_template">
-        <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="cliente">
-                <t t-call="web.external_layout">
+    <data>
+        <template id="veterinariaupo_cliente_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="cliente">
                     <div class="page">
-                        <div class="oe_structure" />
+                        <style>
+                            body {
+                            font-family: 'Arial', sans-serif;
+                            background-color: #f4f4f4;
+                            color: #333;
+                            padding: 20px;
+                            }
+
+                            h2 {
+                            color: #007bff;
+                            text-align: center;
+                            margin-bottom: 20px;
+                            }
+
+                            h3 {
+                            color: #007bff;
+                            margin-top: 20px;
+                            }
+
+                            table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin-top: 20px;
+                            margin-bottom: 40px;
+                            }
+
+                            table, th, td {
+                            border: 1px solid #ddd;
+                            }
+
+                            th, td {
+                            padding: 15px;
+                            text-align: left;
+                            }
+
+                            th {
+                            background-color: #007bff;
+                            color: #fff;
+                            }
+
+                            .lab-info {
+                            margin-top: 20px;
+                            }
+
+                            .lab-info p {
+                            margin-bottom: 10px;
+                            }
+
+                            .lab-info strong {
+                            font-weight: bold;
+                            margin-right: 10px;
+                            }
+                        </style>
+
                         <h2>Cliente Report</h2>
-                        <p><strong>ID Cliente:</strong> <span t-field="cliente.carnet_id" /></p>
-                        <p><strong>ID Card:</strong> <span t-field="cliente.dni" /></p>
-                        <p><strong>Nombre:</strong> <span t-field="cliente.nombre" /></p>
-                        <p><strong>Apellidos:</strong> <span t-field="cliente.apellidos" /></p>
-                        <p><strong>Dirección:</strong> <span t-field="cliente.direccion" /></p>
-                        <p><strong>Telefono:</strong> <span t-field="cliente.telefono" /></p>
-                        <p><strong>Correo:</strong> <span t-field="cliente.correo" /></p>
-        
-                        <div t-if="cliente.mascotas_ids">
-                            <h3>Mascotas</h3>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Especie</th>
-                                        <th>Raza</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                        <table>
+                            <tr>
+                                <th>Carnet ID:</th>
+                                <td>
+                                    <span t-field="cliente.carnet_id" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Nombre:</th>
+                                <td>
+                                    <span t-field="cliente.nombre" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Apellidos:</th>
+                                <td>
+                                    <span t-field="cliente.apellidos" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>DNI:</th>
+                                <td>
+                                    <span t-field="cliente.dni" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Dirección:</th>
+                                <td>
+                                    <span t-field="cliente.direccion" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Teléfono:</th>
+                                <td>
+                                    <span t-field="cliente.telefono" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Correo:</th>
+                                <td>
+                                    <span t-field="cliente.correo" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Mascotas:</th>
+                                <td>
                                     <t t-foreach="cliente.mascotas_ids" t-as="mascota">
-                                        <tr>
-                                            <td><span t-field="mascota.nombre" /></td>
-                                            <td><span t-field="mascota.especie" /></td>
-                                            <td><span t-field="mascota.raza" /></td>
-                                        </tr>
+                                        <p>
+                                            <span t-field="mascota.name" />
+                                        </p>
                                     </t>
-                                </tbody>
-                            </table>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div t-if="cliente.photo">
+                            <h3>Foto del Cliente</h3>
+                            <img t-att-src="'data:image/png;base64,%s' % cliente.photo"
+                                style="max-width: 100%;" />
                         </div>
                     </div>
                 </t>
             </t>
-        </t>
-    </template>
+        </template>
+    </data>
 </odoo>

@@ -1,0 +1,7 @@
+dni,nombre,apellidos,direccion,telefono,correo,carnet_id,photo
+12345689E,John,Doe,123 Main St,987654321,john.doe@example.com,001,
+98765321D,Jane,Smith,456 Oak St,123456789,jane.smith@example.com,002,
+45679123G,Bob,Johnson,789 Elm St,555666777,bob.johnson@example.com,003,
+78923456B,Alice,Williams,321 Pine St,333444555,alice.williams@example.com,004,
+23567890A,David,Miller,567 Birch St,999888777,david.miller@example.com,005,
+
