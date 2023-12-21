@@ -13,4 +13,10 @@
 <menuitem name="Tipo Medicina" id="tipomedicina_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="tipomedicina_list_action"/>
 <menuitem name="Tratamiento" id="tratamiento_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="tratamiento_list_action"/>
 <menuitem name="Pruebas Médicas" id="prueba_medica_menu" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="prueba_medica_calendar_action"/>
+
+<!-- Vistas OWL-->
+<menuitem name="ATS OWL" id="ats_menu_owl_ats" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="action_ATSComponent_js"/>
+<menuitem name="Cliente OWL" id="cliente_menu_owl_ats" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="action_ClienteComponent_js"/>
+<menuitem name="Veterinario OWL" id="veterinario_menu_owl_ats" parent="veterinariaupo_menu" groups="group_veterinariaupo_manager" action="action_VeterinarioComponent_js"/>
+
 </odoo>

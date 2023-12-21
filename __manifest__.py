@@ -52,6 +52,7 @@
         'views/pruebamedica_view.xml',
         'views/views.xml',
         'views/templates.xml',
+        'views/owl.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode
@@ -65,7 +66,15 @@
         'demo/veterinariaupo.tratamiento.csv',
         'demo/veterinariaupo.tipomedicina.csv'
         
-    ],    
+    ],
+    'assets': {
+    'web.assets_backend': [
+        'static/src/components/*/*.js',
+        'static/src/components/*/*.xml',
+        'static/src/components/*/*.scss',
+        ],
+    },
+
     'auto_install': True,
     'application': True,
     'logo': {

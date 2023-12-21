@@ -1,0 +1,14 @@
+<odoo>
+<record id="action_ATSComponent_js" model="ir.actions.client">
+    <field name="name">ATS OWL</field>
+    <field name="tag">owl.action_ATSComponent_js</field>
+</record>
+<record id="action_ClienteComponent_js" model="ir.actions.client">
+  <field name="name">Cliente OWL</field>
+  <field name="tag">owl.action_ClienteComponent_js</field>
+</record>
+<record id="action_VeterinarioComponent_js" model="ir.actions.client">
+  <field name="name">Veterinario OWL</field>
+  <field name="tag">owl.action_VeterinarioComponent_js</field>
+</record>
+</odoo>

@@ -1,0 +1,72 @@
+<templates>
+    <t t-name="owl.VeterinarioComponent" owl="1">
+        <div class="VeterinarioComponent-container">
+            <div class="row mx-2 mt-3">
+                <div class="col-lg-6">
+                    <button class="btn btn-primary" t-on-click="addVeterinario">Nuevo Veterinario</button>
+                </div>
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar por ID Veterinario..." t-ref="search-input" t-on-keyup="searchVeterinarios"/>
+                        <button class="btn btn-outline-primary" t-on-click="searchVeterinarios">Buscar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-2">
+                <div class="col">
+                    <table class="table table-striped table-hover border">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID Veterinario</th>
+                                <th scope="col">Especialidad</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="state.veterinarioList" t-as="veterinario" t-key="veterinario.id">
+                                <td><span t-esc="veterinario.name"/></td>
+                                <td><span t-esc="veterinario.especialidad"/></td>
+                                <td>
+                                    <button class="btn btn-success me-2" t-on-click="()=>editVeterinario(veterinario)">Editar</button>
+                                    <button class="btn btn-danger" t-on-click="()=>deleteVeterinario(veterinario)">Eliminar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="modal fade" id="veterinarioModal" tabindex="-1" aria-labelledby="veterinarioModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="veterinarioModalLabel">Agregar/Editar Veterinario</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3 row">
+                                <label class="col-sm-2 col-form-label">ID Veterinario</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" t-model="state.veterinario.name" t-att-value="state.veterinario.name" />
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label class="col-sm-2 col-form-label">Especialidad</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" t-model="state.veterinario.especialidad" t-att-value="state.veterinario.especialidad">
+                                        <option t-foreach="state.especialidades" t-as="esp" t-key="esp[0]" t-att-value="esp[0]"><span t-esc="esp[1]"/></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" t-on-click="saveVeterinario">Guardar cambios</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>
