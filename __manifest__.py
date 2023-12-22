@@ -74,7 +74,7 @@
         'static/src/components/*/*.scss',
         ],
     },
-
+    'images': ['static/description/icon.png'],
     'auto_install': True,
     'application': True,
     'logo': {
